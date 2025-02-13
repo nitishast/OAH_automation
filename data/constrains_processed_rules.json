@@ -1,0 +1,102 @@
+{
+    "Rx Bc Demographics": {
+        "description": "Email communications in Benefit Central",
+        "fields": {
+            "Rx BC Email": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).\nPrimary Key /Identity used for profile stitching in AEP.",
+                "constraints": [
+                    "NOT NULL",
+                    "NOT EMPTY"
+                ]
+            },
+            "Rx BC First Name": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).",
+                "constraints": [
+                    "NOT NULL",
+                    "NOT EMPTY"
+                ]
+            },
+            "Rx BC Last Name": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).",
+                "constraints": [
+                    "NOT NULL",
+                    "NOT EMPTY"
+                ]
+            }
+        }
+    },
+    "Rx BC Email Event": {
+        "description": "",
+        "fields": {
+            "Rx BC Email": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).",
+                "constraints": [
+                    "NOT NULL",
+                    "NOT EMPTY"
+                ]
+            },
+            "Rx BC Email Template Info": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).",
+                "constraints": [
+                    "Not Null",
+                    "Not Blank"
+                ]
+            },
+            "Rx BC Event ID": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).",
+                "constraints": [
+                    "NOT NULL",
+                    "NotBlank"
+                ]
+            },
+            "Rx BC Event Type": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).",
+                "constraints": [
+                    "NOT NULL",
+                    "NOT EMPTY"
+                ]
+            },
+            "Rx BC New User Registration Link": {
+                "data_type": "String",
+                "required": false,
+                "description": "This field can either be populated or be null/ blank.",
+                "constraints": [
+                    "Nullable"
+                ]
+            },
+            "Rx BC Timestamp": {
+                "data_type": "Date",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).\nMake sure timestamp format is accepted in AEP.",
+                "constraints": [
+                    "Mandatory",
+                    "Not Null",
+                    "Valid AEP timestamp format"
+                ]
+            },
+            "Rx BC User Group": {
+                "data_type": "String",
+                "required": true,
+                "description": "Mandatory field. This field must always be populated(cannot be null or blank).",
+                "constraints": [
+                    "NOT NULL",
+                    "NOT EMPTY"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+excel_file: "data/raw_file.xlsx"
+excel_sheet_name: "BC - Business Rule"
+processed_rules_file: "data/processed_rules.json"
+constrains_processed_rules_file: "data/constrains_processed_rules.json"
+generated_test_cases_file: "data/generated_test_cases.json"
+gemini_model: "gemini-1.5-flash"
+gemini_api_key: "AIzaSyCfWqJvycPgVnUrl_OjIN5nzSQxm_iBlw4"
