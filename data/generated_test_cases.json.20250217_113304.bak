@@ -1,0 +1,204 @@
+{
+    "Rx Bc Demographics.Rx BC First Name": [
+        {
+            "test_case": "Valid Input - Short Name",
+            "description": "A valid short first name.",
+            "expected_result": "Pass",
+            "input": "A"
+        },
+        {
+            "test_case": "Valid Input - Medium Name",
+            "description": "A valid medium-length first name.",
+            "expected_result": "Pass",
+            "input": "Robert"
+        },
+        {
+            "test_case": "Valid Input - Long Name",
+            "description": "A valid long first name.",
+            "expected_result": "Pass",
+            "input": "RobertJohnDavid"
+        },
+        {
+            "test_case": "Valid Input - Name with Apostrophe",
+            "description": "A valid name with an apostrophe.",
+            "expected_result": "Pass",
+            "input": "O'Malley"
+        },
+        {
+            "test_case": "Valid Input - Name with Hyphen",
+            "description": "A valid name with a hyphen.",
+            "expected_result": "Pass",
+            "input": "Jean-Pierre"
+        },
+        {
+            "test_case": "Valid Input - Name with Accents",
+            "description": "A valid name with accents.",
+            "expected_result": "Pass",
+            "input": "Jos\u00e9"
+        },
+        {
+            "test_case": "Valid Input - Name with Special Characters (Allowed)",
+            "description": "A valid name with allowed special characters.",
+            "expected_result": "Pass",
+            "input": "Jean-Claude Van Damme"
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Input is null.",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Input is an empty string.",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Only Spaces",
+            "description": "Input contains only spaces.",
+            "expected_result": "Fail",
+            "input": "   "
+        },
+        {
+            "test_case": "Invalid Input - Numbers Only",
+            "description": "Input contains only numbers.",
+            "expected_result": "Fail",
+            "input": "12345"
+        },
+        {
+            "test_case": "Invalid Input - Special Characters Only",
+            "description": "Input contains only special characters.",
+            "expected_result": "Fail",
+            "input": "!@#$%^&*()"
+        },
+        {
+            "test_case": "Invalid Input - Mixed Case with Special Characters (Disallowed)",
+            "description": "Input contains disallowed special characters.",
+            "expected_result": "Fail",
+            "input": "Robert!@#$"
+        },
+        {
+            "test_case": "Boundary Condition - Maximum Length",
+            "description": "Input is at the maximum allowed length (assuming a reasonable maximum).",
+            "expected_result": "Pass",
+            "input": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+        },
+        {
+            "test_case": "Edge Case - Leading/Trailing Spaces",
+            "description": "Input contains leading and trailing spaces.",
+            "expected_result": "Fail",
+            "input": "  Robert  "
+        },
+        {
+            "test_case": "Edge Case - Unicode Characters",
+            "description": "Input contains Unicode characters.",
+            "expected_result": "Pass",
+            "input": "\u4f60\u597d\u4e16\u754c"
+        },
+        {
+            "test_case": "Edge Case -  Multiple spaces between words",
+            "description": "Input contains multiple spaces between words.",
+            "expected_result": "Pass",
+            "input": "Robert    John"
+        }
+    ],
+    "Rx BC Email Event.Rx BC Email": [
+        {
+            "test_case": "Valid Input - Simple Email",
+            "description": "A basic valid email address.",
+            "expected_result": "Pass",
+            "input": "test@example.com"
+        },
+        {
+            "test_case": "Valid Input - Complex Email",
+            "description": "A more complex, but valid email address.",
+            "expected_result": "Pass",
+            "input": "firstname.lastname+alias@subdomain.example.co.uk"
+        },
+        {
+            "test_case": "Valid Input - Long Email",
+            "description": "An email address at the maximum length allowed (check your system's limitations).",
+            "expected_result": "Pass",
+            "input": "alonglongemail@example.com"
+        },
+        {
+            "test_case": "Valid Input - Email with Numbers",
+            "description": "An email address containing numbers.",
+            "expected_result": "Pass",
+            "input": "test123@example.com"
+        },
+        {
+            "test_case": "Valid Input - Email with Underscores",
+            "description": "An email address containing underscores.",
+            "expected_result": "Pass",
+            "input": "test_user_name@example.com"
+        },
+        {
+            "test_case": "Valid Input - Email with Hyphens",
+            "description": "An email address containing hyphens.",
+            "expected_result": "Pass",
+            "input": "test-user-name@example.com"
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Testing null input.",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Testing an empty string.",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Missing @ Symbol",
+            "description": "Testing an email address without the '@' symbol.",
+            "expected_result": "Fail",
+            "input": "test.example.com"
+        },
+        {
+            "test_case": "Invalid Input - Missing Domain",
+            "description": "Testing an email address without a domain.",
+            "expected_result": "Fail",
+            "input": "test@"
+        },
+        {
+            "test_case": "Invalid Input - Only @ Symbol",
+            "description": "Testing only the '@' symbol.",
+            "expected_result": "Fail",
+            "input": "@"
+        },
+        {
+            "test_case": "Invalid Input - Invalid Characters",
+            "description": "Testing with invalid characters.",
+            "expected_result": "Fail",
+            "input": "test!@example.com"
+        },
+        {
+            "test_case": "Invalid Input - Leading/Trailing Spaces",
+            "description": "Testing with leading and trailing spaces.",
+            "expected_result": "Fail",
+            "input": " test@example.com "
+        },
+        {
+            "test_case": "Edge Case - Very Long Email",
+            "description": "Testing with an extremely long email address (exceeding typical limits).",
+            "expected_result": "Fail",
+            "input": "averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongusername@averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongdomain.com"
+        },
+        {
+            "test_case": "Edge Case - Unicode Characters",
+            "description": "Testing with unicode characters in the email address.",
+            "expected_result": "Pass",
+            "input": "test\u00fc\u00f6\u00e4@example.com"
+        },
+        {
+            "test_case": "Boundary Condition - Maximum Length Email",
+            "description": "Testing email address at the maximum length allowed by the system (needs to be determined).",
+            "expected_result": "Pass",
+            "input": "averylongstring@example.com"
+        }
+    ]
+}

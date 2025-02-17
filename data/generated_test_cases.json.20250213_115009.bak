@@ -1,0 +1,382 @@
+{
+    "Rx Bc Demographics.Rx BC Email": null,
+    "Rx Bc Demographics.Rx BC First Name": [
+        {
+            "test_case": "Valid Input - Alphanumeric",
+            "description": "Valid alphanumeric first name",
+            "expected_result": "Pass",
+            "input": "John Doe"
+        },
+        {
+            "test_case": "Valid Input - Alphabetic",
+            "description": "Valid alphabetic first name",
+            "expected_result": "Pass",
+            "input": "Alice"
+        },
+        {
+            "test_case": "Valid Input - Single Character",
+            "description": "Valid single character first name",
+            "expected_result": "Pass",
+            "input": "A"
+        },
+        {
+            "test_case": "Valid Input - With Apostrophe",
+            "description": "Valid first name with an apostrophe",
+            "expected_result": "Pass",
+            "input": "O'Malley"
+        },
+        {
+            "test_case": "Valid Input - With Hyphen",
+            "description": "Valid first name with a hyphen",
+            "expected_result": "Pass",
+            "input": "Jean-Pierre"
+        },
+        {
+            "test_case": "Valid Input - Leading and Trailing Spaces",
+            "description": "Valid first name with leading and trailing spaces (should be trimmed)",
+            "expected_result": "Pass",
+            "input": "  Robert  "
+        },
+        {
+            "test_case": "Valid Input - Unicode Characters",
+            "description": "Valid first name with Unicode characters",
+            "expected_result": "Pass",
+            "input": "\u5f20\u4e09"
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Null input",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Empty string input",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Only Spaces",
+            "description": "String with only spaces",
+            "expected_result": "Fail",
+            "input": "   "
+        },
+        {
+            "test_case": "Invalid Input - Numeric Only",
+            "description": "Numeric only input",
+            "expected_result": "Fail",
+            "input": "123"
+        },
+        {
+            "test_case": "Invalid Input - Special Characters Only",
+            "description": "Special characters only input",
+            "expected_result": "Fail",
+            "input": "!@#$%^&*()"
+        },
+        {
+            "test_case": "Invalid Input - Long String",
+            "description": "String exceeding maximum length (assuming a reasonable maximum length)",
+            "expected_result": "Fail",
+            "input": "ThisIsAVeryVeryVeryVeryVeryVeryVeryLongFirstNameThatExceedsTheMaximumLength"
+        },
+        {
+            "test_case": "Edge Case - Maximum Length String (assuming a reasonable maximum length)",
+            "description": "String at maximum allowed length",
+            "expected_result": "Pass",
+            "input": "ThisIsALongButValidFirstName"
+        },
+        {
+            "test_case": "Boundary Condition - Minimum Length String",
+            "description": "String with minimum length (one character)",
+            "expected_result": "Pass",
+            "input": "J"
+        },
+        {
+            "test_case": "Boundary Condition - Leading and Trailing Whitespace Only",
+            "description": "Leading and trailing whitespace only",
+            "expected_result": "Fail",
+            "input": "     "
+        },
+        {
+            "test_case": "Boundary Condition -  Multiple Spaces within Name",
+            "description": "Multiple spaces within the name",
+            "expected_result": "Pass",
+            "input": "John  Doe"
+        }
+    ],
+    "Rx Bc Demographics.Rx BC Last Name": null,
+    "Rx BC Email Event.Rx BC Email": [
+        {
+            "test_case": "Valid Input - Simple Email",
+            "description": "A basic valid email address.",
+            "expected_result": "Pass",
+            "input": "test@example.com"
+        },
+        {
+            "test_case": "Valid Input - Complex Email",
+            "description": "A more complex, but valid email address.",
+            "expected_result": "Pass",
+            "input": "firstname.lastname+alias@subdomain.example.co.uk"
+        },
+        {
+            "test_case": "Valid Input - Long Email",
+            "description": "A long email address, within reasonable limits.",
+            "expected_result": "Pass",
+            "input": "verylongname@averyverylongdomainname.com"
+        },
+        {
+            "test_case": "Valid Input - International Email",
+            "description": "Email with international characters in the local part.",
+            "expected_result": "Pass",
+            "input": "test\u00fc\u00f6\u00e4@example.com"
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Testing for null input.",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Testing for an empty string.",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Missing @ Symbol",
+            "description": "Testing for a missing '@' symbol.",
+            "expected_result": "Fail",
+            "input": "test example.com"
+        },
+        {
+            "test_case": "Invalid Input - Missing Domain",
+            "description": "Testing for a missing domain.",
+            "expected_result": "Fail",
+            "input": "test@"
+        },
+        {
+            "test_case": "Invalid Input - Only @ Symbol",
+            "description": "Testing for only the '@' symbol.",
+            "expected_result": "Fail",
+            "input": "@"
+        },
+        {
+            "test_case": "Invalid Input - Invalid Characters",
+            "description": "Testing for invalid characters in the email address.",
+            "expected_result": "Fail",
+            "input": "test!@example.com"
+        },
+        {
+            "test_case": "Invalid Input - Too Many Periods",
+            "description": "Testing for too many periods in the local part.",
+            "expected_result": "Fail",
+            "input": "test..@example.com"
+        },
+        {
+            "test_case": "Invalid Input - Leading/Trailing Spaces",
+            "description": "Testing for leading or trailing spaces.",
+            "expected_result": "Fail",
+            "input": " test@example.com "
+        },
+        {
+            "test_case": "Boundary Condition - Maximum Length",
+            "description": "Testing the maximum length of the email address (approximation).",
+            "expected_result": "Pass/fail (depends on implementation)",
+            "input": "thisisalongemailifitislongerthan254charactersithinkitmightfail@example.com"
+        },
+        {
+            "test_case": "Boundary Condition - Minimum Length (valid)",
+            "description": "Testing minimum valid length of an email address.",
+            "expected_result": "Pass",
+            "input": "a@b.c"
+        }
+    ],
+    "Rx BC Email Event.Rx BC Email Template Info": null,
+    "Rx BC Email Event.Rx BC Event ID": null,
+    "Rx BC Email Event.Rx BC Event Type": null,
+    "Rx BC Email Event.Rx BC New User Registration Link": null,
+    "Rx BC Email Event.Rx BC Timestamp": [
+        {
+            "test_case": "Valid Input - Current Date",
+            "description": "Valid date in AEP timestamp format (e.g., YYYY-MM-DD)",
+            "expected_result": "Pass",
+            "input": "2024-10-27"
+        },
+        {
+            "test_case": "Valid Input - Past Date",
+            "description": "Valid past date in AEP timestamp format",
+            "expected_result": "Pass",
+            "input": "2023-01-15"
+        },
+        {
+            "test_case": "Valid Input - Future Date",
+            "description": "Valid future date in AEP timestamp format",
+            "expected_result": "Pass",
+            "input": "2025-12-31"
+        },
+        {
+            "test_case": "Valid Input - Leap Year",
+            "description": "Valid date in a leap year",
+            "expected_result": "Pass",
+            "input": "2024-02-29"
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Null value, violating 'Not Null' constraint",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Empty string, violating 'Not Null' and 'Valid AEP timestamp format' constraints",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Incorrect Format",
+            "description": "Incorrect date format, violating 'Valid AEP timestamp format' constraint",
+            "expected_result": "Fail",
+            "input": "10/27/2024"
+        },
+        {
+            "test_case": "Invalid Input - Invalid Date",
+            "description": "Invalid date (e.g., Feb 30th), violating 'Valid AEP timestamp format' constraint",
+            "expected_result": "Fail",
+            "input": "2024-02-30"
+        },
+        {
+            "test_case": "Invalid Input - Non-numeric characters",
+            "description": "Date with non-numeric characters, violating 'Valid AEP timestamp format' constraint",
+            "expected_result": "Fail",
+            "input": "2024-10-2a"
+        },
+        {
+            "test_case": "Boundary Condition - Minimum Date",
+            "description": "Testing the earliest acceptable date (system dependent, adjust as needed)",
+            "expected_result": "Pass",
+            "input": "1900-01-01"
+        },
+        {
+            "test_case": "Boundary Condition - Maximum Date",
+            "description": "Testing the latest acceptable date (system dependent, adjust as needed)",
+            "expected_result": "Pass",
+            "input": "2100-12-31"
+        },
+        {
+            "test_case": "Edge Case -  Date at the start of the month",
+            "description": "Edge case: first day of the month",
+            "expected_result": "Pass",
+            "input": "2025-03-01"
+        },
+        {
+            "test_case": "Edge Case - Date at the end of the month",
+            "description": "Edge case: last day of the month",
+            "expected_result": "Pass",
+            "input": "2025-03-31"
+        }
+    ],
+    "Rx BC Email Event.Rx BC User Group": [
+        {
+            "test_case": "Valid Input - Alphanumeric",
+            "description": "Valid input with alphanumeric characters",
+            "expected_result": "Pass",
+            "input": "GroupA123"
+        },
+        {
+            "test_case": "Valid Input - Special Characters Allowed",
+            "description": "Valid input with allowed special characters (e.g., underscore, hyphen)",
+            "expected_result": "Pass",
+            "input": "Group_A-123"
+        },
+        {
+            "test_case": "Valid Input - Long String",
+            "description": "Valid input with a long string (near the maximum allowed length, assuming a practical limit)",
+            "expected_result": "Pass",
+            "input": "ThisIsAVeryLongStringForTheRxBCUserGroupFieldToTestTheMaximumLengthCapability"
+        },
+        {
+            "test_case": "Valid Input - Short String",
+            "description": "Valid input with a short string",
+            "expected_result": "Pass",
+            "input": "GroupA"
+        },
+        {
+            "test_case": "Valid Input - Only Numbers",
+            "description": "Valid input containing only numbers",
+            "expected_result": "Pass",
+            "input": "12345"
+        },
+        {
+            "test_case": "Valid Input - Only Uppercase",
+            "description": "Valid input containing only uppercase letters",
+            "expected_result": "Pass",
+            "input": "GROUPA"
+        },
+        {
+            "test_case": "Valid Input - Only Lowercase",
+            "description": "Valid input containing only lowercase letters",
+            "expected_result": "Pass",
+            "input": "groupa"
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Invalid input: null value",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Invalid input: empty string",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Only Spaces",
+            "description": "Invalid input: string containing only spaces",
+            "expected_result": "Fail",
+            "input": "   "
+        },
+        {
+            "test_case": "Invalid Input - Leading/Trailing Spaces",
+            "description": "Invalid input: string with leading and trailing spaces",
+            "expected_result": "Fail",
+            "input": "  GroupA  "
+        },
+        {
+            "test_case": "Invalid Input - Unallowed Special Characters",
+            "description": "Invalid input: contains unallowed special characters (e.g., <, >, &, etc.)",
+            "expected_result": "Fail",
+            "input": "Group<A>"
+        },
+        {
+            "test_case": "Invalid Input - Non-Printable Characters",
+            "description": "Invalid input: contains non-printable characters",
+            "expected_result": "Fail",
+            "input": "Groupu0000A"
+        },
+        {
+            "test_case": "Boundary Condition - Maximum Length",
+            "description": "Test the maximum length allowed for the field (assuming a practical limit, adjust as needed)",
+            "expected_result": "Pass",
+            "input": "ThisIsAStringWithExactlyTheMaximumAllowedNumberOfCharactersForTheRxBCUserGroupField"
+        },
+        {
+            "test_case": "Boundary Condition - Minimum Length",
+            "description": "Test the minimum length allowed for the field (assuming a practical limit, a single character should be valid)",
+            "expected_result": "Pass",
+            "input": "A"
+        },
+        {
+            "test_case": "Edge Case - Unicode Characters",
+            "description": "Test with various unicode characters",
+            "expected_result": "Pass",
+            "input": "\u0413\u0440\u0443\u043f\u043f\u0430A"
+        },
+        {
+            "test_case": "Edge Case - Emoji",
+            "description": "Test with an emoji (depending on database limitations, this might fail)",
+            "expected_result": "Pass",
+            "input": "\ud83d\ude0aGroupA"
+        }
+    ]
+}

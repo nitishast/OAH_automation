@@ -1,0 +1,340 @@
+2025-02-17 11:31:00,409 - ERROR - Failed to load config: [Errno 2] No such file or directory: 'config/settings.yaml'
+2025-02-17 11:31:00,409 - ERROR - Application failed: [Errno 2] No such file or directory: 'config/settings.yaml'
+2025-02-17 11:31:17,923 - INFO - Processing field 1/10: Rx Bc Demographics.Rx BC Email
+2025-02-17 11:31:24,452 - ERROR - JSON parsing error: Invalid \escape: line 54 column 37 (char 1526)
+2025-02-17 11:31:24,453 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:31:29,873 - ERROR - JSON parsing error: Invalid \escape: line 54 column 37 (char 1520)
+2025-02-17 11:31:29,874 - WARNING - Attempt 2: Failed to generate valid test cases
+2025-02-17 11:31:35,403 - ERROR - JSON parsing error: Invalid \escape: line 48 column 37 (char 1338)
+2025-02-17 11:31:35,404 - WARNING - Attempt 3: Failed to generate valid test cases
+2025-02-17 11:31:35,405 - INFO - Processing field 2/10: Rx Bc Demographics.Rx BC First Name
+2025-02-17 11:31:41,035 - INFO - Successfully generated 14 test cases
+2025-02-17 11:31:41,036 - INFO - Processing field 3/10: Rx Bc Demographics.Rx BC Last Name
+2025-02-17 11:31:46,773 - INFO - Successfully generated 15 test cases
+2025-02-17 11:31:46,774 - INFO - Processing field 4/10: Rx BC Email Event.Rx BC Email
+2025-02-17 11:31:51,851 - ERROR - JSON parsing error: Expecting ',' delimiter: line 54 column 17 (char 1498)
+2025-02-17 11:31:51,852 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:31:57,321 - ERROR - JSON parsing error: Invalid \escape: line 54 column 37 (char 1523)
+2025-02-17 11:31:57,322 - WARNING - Attempt 2: Failed to generate valid test cases
+2025-02-17 11:32:03,051 - INFO - Successfully generated 14 test cases
+2025-02-17 11:32:03,052 - INFO - Processing field 5/10: Rx BC Email Event.Rx BC Email Template Info
+2025-02-17 11:32:08,083 - ERROR - JSON parsing error: Invalid \escape: line 18 column 81 (char 699)
+2025-02-17 11:32:08,084 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:32:12,984 - ERROR - JSON parsing error: Invalid \escape: line 18 column 78 (char 700)
+2025-02-17 11:32:12,984 - WARNING - Attempt 2: Failed to generate valid test cases
+2025-02-17 11:32:18,102 - ERROR - JSON parsing error: Invalid \escape: line 18 column 89 (char 728)
+2025-02-17 11:32:18,103 - WARNING - Attempt 3: Failed to generate valid test cases
+2025-02-17 11:32:18,104 - INFO - Processing field 6/10: Rx BC Email Event.Rx BC Event ID
+2025-02-17 11:32:23,115 - INFO - Successfully generated 12 test cases
+2025-02-17 11:32:23,115 - INFO - Processing field 7/10: Rx BC Email Event.Rx BC Event Type
+2025-02-17 11:32:28,298 - ERROR - JSON parsing error: Invalid \escape: line 18 column 52 (char 561)
+2025-02-17 11:32:28,299 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:32:33,391 - ERROR - JSON parsing error: Invalid \escape: line 18 column 35 (char 549)
+2025-02-17 11:32:33,392 - WARNING - Attempt 2: Failed to generate valid test cases
+2025-02-17 11:32:37,864 - INFO - Successfully generated 11 test cases
+2025-02-17 11:32:37,866 - INFO - Processing field 8/10: Rx BC Email Event.Rx BC New User Registration Link
+2025-02-17 11:32:42,435 - ERROR - JSON parsing error: Invalid \escape: line 36 column 33 (char 1068)
+2025-02-17 11:32:42,436 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:32:48,212 - INFO - Successfully generated 12 test cases
+2025-02-17 11:32:48,213 - INFO - Processing field 9/10: Rx BC Email Event.Rx BC Timestamp
+2025-02-17 11:32:55,280 - INFO - Successfully generated 17 test cases
+2025-02-17 11:32:55,281 - INFO - Processing field 10/10: Rx BC Email Event.Rx BC User Group
+2025-02-17 11:33:00,266 - ERROR - JSON parsing error: Expecting property name enclosed in double quotes: line 47 column 33 (char 1303)
+2025-02-17 11:33:00,267 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:33:04,902 - INFO - Successfully generated 11 test cases
+2025-02-17 11:33:04,907 - INFO - Created backup: data/generated_test_cases.json.20250217_113304.bak
+2025-02-17 11:33:04,909 - INFO - Successfully saved test cases to data/generated_test_cases.json
+2025-02-17 11:33:04,910 - INFO - 
+Test Case Generation Summary
+==============================
+Total fields processed: 8
+Total test cases generated: 106
+Average test cases per field: 13.25
+Output file: data/generated_test_cases.json
+==============================
+2025-02-17 11:46:55,950 - INFO - Processing field 1/10: Rx Bc Demographics.Rx BC Email
+2025-02-17 11:47:03,573 - ERROR - JSON parsing error: Invalid \escape: line 54 column 37 (char 1503)
+2025-02-17 11:47:03,574 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:47:09,708 - INFO - Successfully generated 14 test cases
+2025-02-17 11:47:09,709 - INFO - Processing field 2/10: Rx Bc Demographics.Rx BC First Name
+2025-02-17 11:47:14,191 - ERROR - JSON parsing error: Expecting ',' delimiter: line 66 column 20 (char 1770)
+2025-02-17 11:47:14,192 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:47:18,208 - INFO - Successfully generated 10 test cases
+2025-02-17 11:47:18,208 - INFO - Processing field 3/10: Rx Bc Demographics.Rx BC Last Name
+2025-02-17 11:47:23,415 - INFO - Successfully generated 13 test cases
+2025-02-17 11:47:23,416 - INFO - Processing field 4/10: Rx BC Email Event.Rx BC Email
+2025-02-17 11:47:29,061 - ERROR - JSON parsing error: Invalid \escape: line 54 column 37 (char 1530)
+2025-02-17 11:47:29,062 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:47:34,386 - ERROR - JSON parsing error: Invalid \escape: line 48 column 37 (char 1339)
+2025-02-17 11:47:34,388 - WARNING - Attempt 2: Failed to generate valid test cases
+2025-02-17 11:47:39,954 - ERROR - JSON parsing error: Invalid \escape: line 48 column 37 (char 1345)
+2025-02-17 11:47:39,955 - WARNING - Attempt 3: Failed to generate valid test cases
+2025-02-17 11:47:39,955 - INFO - Processing field 5/10: Rx BC Email Event.Rx BC Email Template Info
+2025-02-17 11:47:44,681 - ERROR - JSON parsing error: Invalid \escape: line 36 column 37 (char 1117)
+2025-02-17 11:47:44,682 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:47:49,720 - ERROR - JSON parsing error: Invalid \escape: line 18 column 89 (char 744)
+2025-02-17 11:47:49,721 - WARNING - Attempt 2: Failed to generate valid test cases
+2025-02-17 11:47:55,271 - INFO - Successfully generated 11 test cases
+2025-02-17 11:47:55,272 - INFO - Processing field 6/10: Rx BC Email Event.Rx BC Event ID
+2025-02-17 11:48:00,294 - INFO - Successfully generated 12 test cases
+2025-02-17 11:48:00,295 - INFO - Processing field 7/10: Rx BC Email Event.Rx BC Event Type
+2025-02-17 11:48:05,306 - INFO - Successfully generated 12 test cases
+2025-02-17 11:48:05,307 - INFO - Processing field 8/10: Rx BC Email Event.Rx BC New User Registration Link
+2025-02-17 11:48:10,840 - ERROR - JSON parsing error: Invalid \escape: line 42 column 61 (char 1307)
+2025-02-17 11:48:10,841 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 11:48:16,371 - INFO - Successfully generated 10 test cases
+2025-02-17 11:48:16,372 - INFO - Processing field 9/10: Rx BC Email Event.Rx BC Timestamp
+2025-02-17 11:48:23,436 - INFO - Successfully generated 14 test cases
+2025-02-17 11:48:23,437 - INFO - Processing field 10/10: Rx BC Email Event.Rx BC User Group
+2025-02-17 11:48:27,942 - INFO - Successfully generated 11 test cases
+2025-02-17 11:48:27,945 - INFO - Successfully saved test cases to data/anth.json
+2025-02-17 11:48:27,946 - INFO - 
+Test Case Generation Summary
+==============================
+Total fields processed: 9
+Total test cases generated: 107
+Average test cases per field: 11.89
+Output file: data/anth.json
+==============================
+2025-02-17 15:21:59,719 - INFO - Processing field 1/10: Rx Bc Demographics.Rx BC Email
+2025-02-17 15:22:07,080 - ERROR - JSON parsing error: Invalid \escape: line 54 column 37 (char 1680)
+2025-02-17 15:22:07,081 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 15:22:12,612 - INFO - Successfully generated 13 test cases
+2025-02-17 15:22:12,614 - INFO - Processing field 2/10: Rx Bc Demographics.Rx BC First Name
+2025-02-17 15:22:17,320 - INFO - Successfully generated 12 test cases
+2025-02-17 15:22:17,321 - INFO - Processing field 3/10: Rx Bc Demographics.Rx BC Last Name
+2025-02-17 15:22:22,589 - INFO - Successfully generated 13 test cases
+2025-02-17 15:22:22,590 - INFO - Processing field 4/10: Rx BC Email Event.Rx BC Email
+2025-02-17 15:22:28,685 - ERROR - JSON parsing error: Invalid \escape: line 48 column 37 (char 1329)
+2025-02-17 15:22:28,686 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 15:22:33,499 - INFO - Successfully generated 11 test cases
+2025-02-17 15:22:33,500 - INFO - Processing field 5/10: Rx BC Email Event.Rx BC Email Template Info
+2025-02-17 15:22:37,491 - ERROR - JSON parsing error: Invalid \escape: line 18 column 58 (char 658)
+2025-02-17 15:22:37,493 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 15:22:42,193 - ERROR - JSON parsing error: Invalid \escape: line 18 column 58 (char 655)
+2025-02-17 15:22:42,194 - WARNING - Attempt 2: Failed to generate valid test cases
+2025-02-17 15:22:46,428 - ERROR - JSON parsing error: Invalid \escape: line 18 column 58 (char 654)
+2025-02-17 15:22:46,428 - WARNING - Attempt 3: Failed to generate valid test cases
+2025-02-17 15:22:46,429 - INFO - Processing field 6/10: Rx BC Email Event.Rx BC Event ID
+2025-02-17 15:22:51,167 - INFO - Successfully generated 11 test cases
+2025-02-17 15:22:51,168 - INFO - Processing field 7/10: Rx BC Email Event.Rx BC Event Type
+2025-02-17 15:22:55,003 - INFO - Successfully generated 9 test cases
+2025-02-17 15:22:55,004 - INFO - Processing field 8/10: Rx BC Email Event.Rx BC New User Registration Link
+2025-02-17 15:22:59,921 - INFO - Successfully generated 11 test cases
+2025-02-17 15:22:59,923 - INFO - Processing field 9/10: Rx BC Email Event.Rx BC Timestamp
+2025-02-17 15:23:07,332 - WARNING - Test case 4 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:23:07,333 - WARNING - Test case 5 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:23:07,334 - WARNING - Test case 7 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:23:07,335 - WARNING - Test case 12 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:23:07,336 - WARNING - Test case 13 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:23:07,337 - WARNING - Test case 14 validation failed: Date input must be a string
+2025-02-17 15:23:07,337 - WARNING - Test case 15 validation failed: Date input must be a string
+2025-02-17 15:23:07,338 - INFO - Successfully generated 8 test cases
+2025-02-17 15:23:07,339 - INFO - Processing field 10/10: Rx BC Email Event.Rx BC User Group
+2025-02-17 15:23:11,591 - INFO - Successfully generated 10 test cases
+2025-02-17 15:23:11,595 - INFO - Successfully saved test cases to data/anth1.json
+2025-02-17 15:23:11,596 - INFO - 
+Test Case Generation Summary
+==============================
+Total fields processed: 9
+Total test cases generated: 98
+Average test cases per field: 10.89
+Output file: data/anth1.json
+==============================
+2025-02-17 15:29:42,126 - INFO - Processing field 1/10: Rx Bc Demographics.Rx BC Email
+2025-02-17 15:29:50,073 - INFO - Successfully generated 14 test cases
+2025-02-17 15:29:50,074 - INFO - Processing field 2/10: Rx Bc Demographics.Rx BC First Name
+2025-02-17 15:29:55,202 - ERROR - JSON parsing error: Expecting ',' delimiter: line 54 column 17 (char 1443) - Raw response: ```json
+[
+  {
+    "test_case": "TC001_Valid_Basic",
+    "description": "Basic valid input test",
+    "expected_result": "Pass",
+    "input": "John"
+  },
+  {
+    "test_case": "TC002_Valid_LongName",
+    "description": "Valid input with a long name",
+    "expected_result": "Pass",
+    "input": "JohnathanChristopherSmith"
+  },
+  {
+    "test_case": "TC003_Valid_SpecialChars",
+    "description": "Valid input with special characters allowed (if any)",
+    "expected_result": "Pass",
+    "input": "John O'Malley"
+  },
+  {
+    "test_case": "TC004_Invalid_Null",
+    "description": "Null input test",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "TC005_Invalid_Empty",
+    "description": "Empty string input test",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "TC006_Invalid_Whitespace",
+    "description": "Input with only whitespace",
+    "expected_result": "Fail",
+    "input": "   "
+  },
+  {
+    "test_case": "TC007_Invalid_NumbersOnly",
+    "description": "Input with only numbers",
+    "expected_result": "Fail",
+    "input": "12345"
+  },
+  {
+    "test_case": "TC008_Invalid_SpecialChars",
+    "description": "Input with disallowed special characters",
+    "expected_result": "Fail",
+    "input": "John !@#$%^&*()"
+  },
+  {
+    "test_case": "TC009_Boundary_Maxlength",
+    "description": "Input at the maximum length (assuming a limit exists)",
+    "expected_result": "Pass",
+    "input": "A".repeat(255) // Adjust 255 to the actual maximum length if known
+  },
+  {
+    "test_case": "TC010_Boundary_ExceedingMaxlength",
+    "description": "Input exceeding the maximum length (assuming a limit exists)",
+    "expected_result": "Fail",
+    "input": "A".repeat(256) // Adjust 256 to the actual maximum length +1 if known
+
+  },
+  {
+    "test_case": "TC011_Edge_OnlyLetters",
+    "description": "Input with only letters",
+    "expected_result": "Pass",
+    "input": "ABCDEFG"
+  },
+    {
+    "test_case": "TC012_Type_Number",
+    "description": "Input of type number",
+    "expected_result": "Fail",
+    "input": 123
+  }
+]
+```
+
+2025-02-17 15:29:55,203 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 15:29:59,966 - INFO - Successfully generated 12 test cases
+2025-02-17 15:29:59,967 - INFO - Processing field 3/10: Rx Bc Demographics.Rx BC Last Name
+2025-02-17 15:30:04,582 - INFO - Successfully generated 10 test cases
+2025-02-17 15:30:04,582 - INFO - Processing field 4/10: Rx BC Email Event.Rx BC Email
+2025-02-17 15:30:09,530 - INFO - Successfully generated 11 test cases
+2025-02-17 15:30:09,531 - INFO - Processing field 5/10: Rx BC Email Event.Rx BC Email Template Info
+2025-02-17 15:30:14,709 - ERROR - JSON parsing error: Expecting ',' delimiter: line 66 column 17 (char 1861) - Raw response: ```json
+[
+  {
+    "test_case": "TC001_Valid_Basic",
+    "description": "Basic valid input test",
+    "expected_result": "Pass",
+    "input": "Valid Email Template Info"
+  },
+  {
+    "test_case": "TC002_Valid_LongString",
+    "description": "Valid input with a long string (check for length limits)",
+    "expected_result": "Pass",
+    "input": "This is a long string to test the length limit of the Rx BC Email Template Info field.  It should be long enough to cover most scenarios."
+  },
+  {
+    "test_case": "TC003_Valid_SpecialCharacters",
+    "description": "Valid input with special characters",
+    "expected_result": "Pass",
+    "input": "Valid!@#$%^&*()-+={}[]|;:'\",./<>? Template Info"
+  },
+  {
+    "test_case": "TC004_Invalid_Null",
+    "description": "Null input test",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "TC005_Invalid_Empty",
+    "description": "Empty string input test",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "TC006_Invalid_Whitespace",
+    "description": "Whitespace only input test",
+    "expected_result": "Fail",
+    "input": "   "
+  },
+  {
+    "test_case": "TC007_Invalid_Number",
+    "description": "Numeric input test",
+    "expected_result": "Fail",
+    "input": 123
+  },
+  {
+    "test_case": "TC008_Invalid_Boolean",
+    "description": "Boolean input test",
+    "expected_result": "Fail",
+    "input": true
+  },
+  {
+    "test_case": "TC009_Invalid_Array",
+    "description": "Array input test",
+    "expected_result": "Fail",
+    "input": []
+  },
+  {
+    "test_case": "TC010_Invalid_Object",
+    "description": "Object input test",
+    "expected_result": "Fail",
+    "input": {}
+  },
+  {
+    "test_case": "TC011_Boundary_Max_Length",
+    "description": "Input at the maximum length limit (assuming a length limit exists)",
+    "expected_result": "Pass",
+    "input": "a".repeat(1000) // Replace 1000 with actual length limit if known
+  },
+  {
+    "test_case": "TC012_Boundary_Exceeds_MaxLength",
+    "description": "Input exceeding the maximum length limit (assuming a length limit exists)",
+    "expected_result": "Fail",
+    "input": "a".repeat(1001) // Replace 1001 with actual length limit + 1 if known
+
+  }
+]
+```
+
+2025-02-17 15:30:14,710 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-17 15:30:18,915 - INFO - Successfully generated 10 test cases
+2025-02-17 15:30:18,916 - INFO - Processing field 6/10: Rx BC Email Event.Rx BC Event ID
+2025-02-17 15:30:23,107 - INFO - Successfully generated 10 test cases
+2025-02-17 15:30:23,108 - INFO - Processing field 7/10: Rx BC Email Event.Rx BC Event Type
+2025-02-17 15:30:27,510 - INFO - Successfully generated 11 test cases
+2025-02-17 15:30:27,512 - INFO - Processing field 8/10: Rx BC Email Event.Rx BC New User Registration Link
+2025-02-17 15:30:32,732 - INFO - Successfully generated 10 test cases
+2025-02-17 15:30:32,734 - INFO - Processing field 9/10: Rx BC Email Event.Rx BC Timestamp
+2025-02-17 15:30:40,625 - WARNING - Test case 4 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,626 - WARNING - Test case 5 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,627 - WARNING - Test case 7 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,627 - WARNING - Test case 11 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,628 - WARNING - Test case 12 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,629 - WARNING - Test case 13 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,631 - WARNING - Test case 14 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,632 - WARNING - Test case 15 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,633 - WARNING - Test case 16 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-17 15:30:40,634 - INFO - Successfully generated 7 test cases
+2025-02-17 15:30:40,635 - INFO - Processing field 10/10: Rx BC Email Event.Rx BC User Group
+2025-02-17 15:30:44,819 - INFO - Successfully generated 10 test cases
+2025-02-17 15:30:44,822 - INFO - Created backup: data/anth1.json.20250217_153044.bak
+2025-02-17 15:30:44,824 - INFO - Successfully saved test cases to data/anth1.json
+2025-02-17 15:30:44,825 - INFO - 
+Test Case Generation Summary
+==============================
+Total fields processed: 10
+Total test cases generated: 105
+Average test cases per field: 10.50
+Output file: data/anth1.json
+==============================

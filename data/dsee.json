@@ -1,0 +1,514 @@
+{
+    "Rx Bc Demographics.Rx BC Email": [
+        {
+            "test_case": "Valid Email",
+            "description": "A valid email address",
+            "expected_result": "Pass",
+            "input": "valid@example.com"
+        },
+        {
+            "test_case": "Valid Email with Plus Sign",
+            "description": "A valid email with a plus sign",
+            "expected_result": "Pass",
+            "input": "user+alias@example.com"
+        },
+        {
+            "test_case": "Valid Email with Underscore",
+            "description": "A valid email with an underscore",
+            "expected_result": "Pass",
+            "input": "user_name@example.com"
+        },
+        {
+            "test_case": "Valid Email with Multiple Top-Level Domains",
+            "description": "A valid email with multiple top-level domains",
+            "expected_result": "Pass",
+            "input": "user@example.co.uk"
+        },
+        {
+            "test_case": "Valid Email with Numbers",
+            "description": "A valid email with numbers",
+            "expected_result": "Pass",
+            "input": "user123@example.com"
+        },
+        {
+            "test_case": "Null Input",
+            "description": "Testing null input",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Empty String",
+            "description": "Testing empty string input",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Email - Missing @ Symbol",
+            "description": "Testing an email address missing the @ symbol",
+            "expected_result": "Fail",
+            "input": "invalidemail"
+        },
+        {
+            "test_case": "Invalid Email - Missing Domain",
+            "description": "Testing an email address missing the domain",
+            "expected_result": "Fail",
+            "input": "invalid@."
+        },
+        {
+            "test_case": "Invalid Email - Special Characters",
+            "description": "Testing an email address with invalid special characters",
+            "expected_result": "Fail",
+            "input": "invalid!@example.com"
+        },
+        {
+            "test_case": "Long Email Address",
+            "description": "Testing a very long email address",
+            "expected_result": "Pass",
+            "input": "averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongaddress@example.com"
+        },
+        {
+            "test_case": "Email with spaces",
+            "description": "Testing an email address with spaces",
+            "expected_result": "Fail",
+            "input": "invalid email@example.com"
+        },
+        {
+            "test_case": "Email with only special characters",
+            "description": "Testing an email address with only special characters",
+            "expected_result": "Fail",
+            "input": "!@#$%^&*()"
+        }
+    ],
+    "Rx Bc Demographics.Rx BC First Name": [
+        {
+            "test_case": "Valid Input - Short Name",
+            "description": "Testing a short, valid first name",
+            "expected_result": "Pass",
+            "input": "John"
+        },
+        {
+            "test_case": "Valid Input - Long Name",
+            "description": "Testing a long, valid first name",
+            "expected_result": "Pass",
+            "input": "JohnathanChristopherAndrewSmith"
+        },
+        {
+            "test_case": "Valid Input - Name with Apostrophe",
+            "description": "Testing a name with an apostrophe",
+            "expected_result": "Pass",
+            "input": "O'Malley"
+        },
+        {
+            "test_case": "Valid Input - Name with Hyphen",
+            "description": "Testing a name with a hyphen",
+            "expected_result": "Pass",
+            "input": "Jean-Pierre"
+        },
+        {
+            "test_case": "Valid Input - Name with Accents",
+            "description": "Testing a name with accents",
+            "expected_result": "Pass",
+            "input": "José"
+        },
+        {
+            "test_case": "Valid Input - Name with Special Characters (Allowed)",
+            "description": "Testing a name with allowed special characters",
+            "expected_result": "Pass",
+            "input": "John-Doe Jr."
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Testing a null value",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Testing an empty string",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Only Spaces",
+            "description": "Testing a string with only spaces",
+            "expected_result": "Fail",
+            "input": "   "
+        },
+        {
+            "test_case": "Invalid Input - Numbers Only",
+            "description": "Testing a string with only numbers",
+            "expected_result": "Fail",
+            "input": "12345"
+        },
+        {
+            "test_case": "Invalid Input - Special Characters Only",
+            "description": "Testing a string with only special characters",
+            "expected_result": "Fail",
+            "input": "!@#$%^&*()"
+        },
+        {
+            "test_case": "Invalid Input - Leading/Trailing Spaces",
+            "description": "Testing a string with leading and trailing spaces",
+            "expected_result": "Fail",
+            "input": "  John  "
+        }
+    ],
+    "Rx Bc Demographics.Rx BC Last Name": [
+        {
+            "test_case": "Valid Input - Alphanumeric",
+            "description": "Testing a valid alphanumeric last name",
+            "expected_result": "Pass",
+            "input": "Smith"
+        },
+        {
+            "test_case": "Valid Input - With Apostrophe",
+            "description": "Testing a valid last name with an apostrophe",
+            "expected_result": "Pass",
+            "input": "O'Brien"
+        },
+        {
+            "test_case": "Valid Input - With Hyphen",
+            "description": "Testing a valid last name with a hyphen",
+            "expected_result": "Pass",
+            "input": "Van-Dyke"
+        },
+        {
+            "test_case": "Valid Input - With Space",
+            "description": "Testing a valid last name with a space",
+            "expected_result": "Pass",
+            "input": "De La Cruz"
+        },
+        {
+            "test_case": "Valid Input - All Capitals",
+            "description": "Testing a valid last name in all capitals",
+            "expected_result": "Pass",
+            "input": "JOHNSON"
+        },
+        {
+            "test_case": "Valid Input - Mixed Case",
+            "description": "Testing a valid last name with mixed case",
+            "expected_result": "Pass",
+            "input": "BrownE"
+        },
+        {
+            "test_case": "Valid Input - Long Name",
+            "description": "Testing a valid last name with many characters",
+            "expected_result": "Pass",
+            "input": "Supercalifragilisticexpialidocious"
+        },
+        {
+            "test_case": "Invalid Input - Null",
+            "description": "Testing a null value",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Invalid Input - Empty String",
+            "description": "Testing an empty string",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Input - Only Spaces",
+            "description": "Testing a string with only spaces",
+            "expected_result": "Fail",
+            "input": "   "
+        },
+        {
+            "test_case": "Invalid Input - Special Characters",
+            "description": "Testing a string with special characters",
+            "expected_result": "Fail",
+            "input": "Smith&Jones!"
+        },
+        {
+            "test_case": "Invalid Input - Numbers Only",
+            "description": "Testing a string with only numbers",
+            "expected_result": "Fail",
+            "input": "12345"
+        },
+        {
+            "test_case": "Invalid Input - Leading/Trailing Spaces",
+            "description": "Testing a string with leading and trailing spaces",
+            "expected_result": "Fail",
+            "input": "  Williams  "
+        }
+    ],
+    "Rx BC Email Event.Rx BC Email": [
+        {
+            "test_case": "Valid Email",
+            "description": "A valid email address",
+            "expected_result": "Pass",
+            "input": "valid@example.com"
+        },
+        {
+            "test_case": "Valid Email with Plus Sign",
+            "description": "A valid email with a plus sign",
+            "expected_result": "Pass",
+            "input": "user+alias@example.com"
+        },
+        {
+            "test_case": "Valid Email with Underscore",
+            "description": "A valid email with an underscore",
+            "expected_result": "Pass",
+            "input": "user_name@example.com"
+        },
+        {
+            "test_case": "Valid Email with Multiple Dots",
+            "description": "A valid email with multiple dots in the domain",
+            "expected_result": "Pass",
+            "input": "user@sub.domain.example.com"
+        },
+        {
+            "test_case": "Valid Email with Hyphen",
+            "description": "A valid email with a hyphen",
+            "expected_result": "Pass",
+            "input": "user-name@example.com"
+        },
+        {
+            "test_case": "Null Input",
+            "description": "Testing null input",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Empty String",
+            "description": "Testing empty string input",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Invalid Email - Missing @",
+            "description": "Email address missing the @ symbol",
+            "expected_result": "Fail",
+            "input": "invalidemail"
+        },
+        {
+            "test_case": "Invalid Email - Missing Domain",
+            "description": "Email address missing the domain",
+            "expected_result": "Fail",
+            "input": "invalid@"
+        },
+        {
+            "test_case": "Invalid Email - Special Characters",
+            "description": "Email address with invalid special characters",
+            "expected_result": "Fail",
+            "input": "invalid!@example.com"
+        },
+        {
+            "test_case": "Long Email Address",
+            "description": "A very long email address (testing length limits)",
+            "expected_result": "Pass",
+            "input": "averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongaddress@example.com"
+        },
+        {
+            "test_case": "Email with spaces",
+            "description": "Email with spaces",
+            "expected_result": "Fail",
+            "input": "invalid email@example.com"
+        },
+        {
+            "test_case": "Email with only numbers",
+            "description": "Email with only numbers",
+            "expected_result": "Fail",
+            "input": "1234567890@example.com"
+        }
+    ],
+    "Rx BC Email Event.Rx BC Event Type": [
+        {
+            "test_case": "Valid Input - Alphanumeric",
+            "description": "Test with alphanumeric characters",
+            "expected_result": "Pass",
+            "input": "NewPrescription"
+        },
+        {
+            "test_case": "Valid Input - Special Characters Allowed",
+            "description": "Test with allowed special characters",
+            "expected_result": "Pass",
+            "input": "Rx Renewal Request"
+        },
+        {
+            "test_case": "Valid Input - Long String",
+            "description": "Test with a long string",
+            "expected_result": "Pass",
+            "input": "ThisIsALongStringForRxBCEventTypeToTestTheMaximumLengthCapabilityOfTheSystem"
+        },
+        {
+            "test_case": "Valid Input - Leading and Trailing Spaces",
+            "description": "Test with leading and trailing spaces",
+            "expected_result": "Pass",
+            "input": "  Medication Change Request  "
+        },
+        {
+            "test_case": "Valid Input - Only Spaces",
+            "description": "Test with only spaces (should fail due to NOT EMPTY)",
+            "expected_result": "Fail",
+            "input": "     "
+        },
+        {
+            "test_case": "Null Input",
+            "description": "Test with null value",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Empty String",
+            "description": "Test with empty string",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Valid Input - Numbers Only",
+            "description": "Test with numbers only",
+            "expected_result": "Pass",
+            "input": "12345"
+        },
+        {
+            "test_case": "Valid Input - Mixed Case",
+            "description": "Test with mixed case characters",
+            "expected_result": "Pass",
+            "input": "rX bC eVent Type"
+        },
+        {
+            "test_case": "Invalid Input - Control Characters",
+            "description": "Test with control characters (should be handled appropriately)",
+            "expected_result": "Pass",
+            "input": "Prescription\u0000Request"
+        }
+    ],
+    "Rx BC Email Event.Rx BC Timestamp": [
+        {
+            "test_case": "Valid Date - YYYY-MM-DD",
+            "description": "Valid date in YYYY-MM-DD format",
+            "expected_result": "Pass",
+            "input": "2024-03-15"
+        },
+        {
+            "test_case": "Valid Date - YYYY-MM-DD HH:mm:ss",
+            "description": "Valid date and time in YYYY-MM-DD HH:mm:ss format",
+            "expected_result": "Pass",
+            "input": "2024-03-15 10:30:00"
+        },
+        {
+            "test_case": "Valid Date - YYYY-MM-DDTHH:mm:ss",
+            "description": "Valid date and time in ISO 8601 format",
+            "expected_result": "Pass",
+            "input": "2024-03-15T10:30:00"
+        },
+        {
+            "test_case": "Invalid Date - Incorrect Format",
+            "description": "Invalid date format",
+            "expected_result": "Fail",
+            "input": "15/03/2024"
+        },
+        {
+            "test_case": "Invalid Date - Non-numeric characters",
+            "description": "Invalid date with non-numeric characters",
+            "expected_result": "Fail",
+            "input": "2024-03-15a"
+        },
+        {
+            "test_case": "Invalid Date - Future Date (potential)",
+            "description": "A date far in the future (check system limitations)",
+            "expected_result": "Fail",
+            "input": "2100-01-01"
+        },
+        {
+            "test_case": "Invalid Date - Past Date (potential)",
+            "description": "A date far in the past (check system limitations)",
+            "expected_result": "Fail",
+            "input": "1900-01-01"
+        },
+        {
+            "test_case": "Invalid Date - Leap Year Check",
+            "description": "Valid leap year date",
+            "expected_result": "Pass",
+            "input": "2024-02-29"
+        },
+        {
+            "test_case": "Invalid Date - Non Leap Year Check",
+            "description": "Invalid date for non leap year",
+            "expected_result": "Fail",
+            "input": "2023-02-29"
+        },
+        {
+            "test_case": "Null Input",
+            "description": "Testing null value",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Empty String",
+            "description": "Testing empty string",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Whitespace String",
+            "description": "Testing whitespace string",
+            "expected_result": "Fail",
+            "input": "   "
+        }
+    ],
+    "Rx BC Email Event.Rx BC User Group": [
+        {
+            "test_case": "Valid Input - Alphanumeric",
+            "description": "Test with alphanumeric characters",
+            "expected_result": "Pass",
+            "input": "GroupA123"
+        },
+        {
+            "test_case": "Valid Input - Special Characters",
+            "description": "Test with allowed special characters",
+            "expected_result": "Pass",
+            "input": "Group_A!@#$%^&*()"
+        },
+        {
+            "test_case": "Valid Input - Spaces",
+            "description": "Test with spaces",
+            "expected_result": "Pass",
+            "input": "Rx BC User Group Name"
+        },
+        {
+            "test_case": "Valid Input - Leading and Trailing Spaces",
+            "description": "Test with leading and trailing spaces",
+            "expected_result": "Pass",
+            "input": "  Rx BC User Group  "
+        },
+        {
+            "test_case": "Valid Input - Long String",
+            "description": "Test with a long string",
+            "expected_result": "Pass",
+            "input": "ThisIsALongStringForTheRxBCUserGroupFieldToTestItsCapacityAndHandleLongInputsWithoutErrorsOrIssues"
+        },
+        {
+            "test_case": "Null Input",
+            "description": "Test null value",
+            "expected_result": "Fail",
+            "input": null
+        },
+        {
+            "test_case": "Empty String",
+            "description": "Test empty string",
+            "expected_result": "Fail",
+            "input": ""
+        },
+        {
+            "test_case": "Only Spaces",
+            "description": "Test string with only spaces",
+            "expected_result": "Fail",
+            "input": "   "
+        },
+        {
+            "test_case": "Invalid Input - Unicode Characters",
+            "description": "Test with Unicode characters",
+            "expected_result": "Pass",
+            "input": "Rx BC ユーザーグループ"
+        },
+        {
+            "test_case": "Valid Input - Numbers Only",
+            "description": "Test with numbers only",
+            "expected_result": "Pass",
+            "input": "1234567890"
+        }
+    ]
+}

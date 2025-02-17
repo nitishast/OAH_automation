@@ -1,0 +1,959 @@
+(test_env) nitastha@WKMZT719EB44 project % python app.py
+Configuring Gemini...
+Using Gemini model: gemini-1.5-flash
+Successfully loaded rules from data/constrains_processed_rules.json
+Processing parent field: Rx Bc Demographics...
+Generating test cases for: Rx BC Email...
+Generating test cases for Rx BC Email...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {"test_case": "Valid Input - Simple Email", "description": "A basic, valid email address.", "expected_result": "Pass", "input": "test@example.com"},
+  {"test_case": "Valid Input - Complex Email", "description": "A more complex, valid email address with special characters.", "expected_result": "Pass", "input": "user+alias@subdomain.example.co.uk"},
+  {"test_case": "Valid Input - Long Email", "description": "A valid email address that's near the maximum length limit (varies by system but should be handled gracefully).", "expected_result": "Pass", "input": "long_email_with_a_very_long_local_part_that_is_close_to_the_limit@example.com"},
+  {"test_case": "Valid Input - Uppercase Email", "description": "A valid email address with uppercase characters.", "expected_result": "Pass", "input": "Test@Example.COM"},
+  {"test_case": "Valid Input - Number in Email", "description": "A valid email address containing numbers.", "expected_result": "Pass", "input": "123test@example.com"},
+  {"test_case": "Invalid Input - Null", "description": "Testing null input.", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Testing empty string input.", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Missing @ Symbol", "description": "Testing missing @ symbol.", "expected_result": "Fail", "input": "test example.com"},
+  {"test_case": "Invalid Input - Missing Domain", "description": "Testing missing domain part.", "expected_result": "Fail", "input": "test@"},
+  {"test_case": "Invalid Input - Missing Local Part", "description": "Testing missing local part.", "expected_result": "Fail", "input": "@example.com"},
+  {"test_case": "Invalid Input - Invalid Characters", "description": "Testing invalid characters in the email address.", "expected_result": "Fail", "input": "test@example.com!"},
+  {"test_case": "Invalid Input - Only Numbers", "description": "Testing input with only numbers.", "expected_result": "Fail", "input": "1234567890"},
+  {"test_case": "Invalid Input - Only Special Characters", "description": "Testing input with only special characters.", "expected_result": "Fail", "input": "!@#$%^&*()"},
+  {"test_case": "Invalid Input - Too Long Email", "description": "Testing an email address that exceeds the maximum length limit (simulated).", "expected_result": "Fail", "input": "this_is_a_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_long_email_address_that_exceeds_the_maximum_length_limit@example.com"},
+  {"test_case": "Edge Case - Email with only one character local part", "description": "Testing a valid email with a short local part", "expected_result": "Pass", "input": "a@example.com"},
+  {"test_case": "Edge Case - Email with multiple dots in local part", "description": "Testing a valid email with multiple dots in the local part", "expected_result": "Pass", "input": "user.name.test@example.com"},
+  {"test_case": "Edge Case - Email with hyphen in local part", "description": "Testing a valid email with a hyphen in the local part", "expected_result": "Pass", "input": "user-name@example.com"},
+  {"test_case": "Edge Case - Email with underscore in local part", "description": "Testing a valid email with an underscore in the local part", "expected_result": "Pass", "input": "user_name@example.com"},
+  {"test_case": "Boundary Condition - Maximum length email (system dependent)", "description": "Testing an email at the maximum length allowed (this value is system dependent and should be verified)", "expected_result": "Pass", "input": "averylongusernamethatisclosetothe
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {"test_case": "Valid Input - Simple Email", "description": "A basic, valid email address.", "expected_result": "Pass", "input": "test@example.com"},
+  {"test_case": "Valid Input - Complex Email", "description": "A more complex, valid email address with special characters.", "expected_result": "Pass", "input": "user+alias@subdomain.example.co.uk"},
+  {"test_case": "Valid Input - Long Email", "description": "A valid email address that's near the maximum length limit (varies by system but should be handled gracefully).", "expected_result": "Pass", "input": "long_email_with_a_very_long_local_part_that_is_close_to_the_limit@example.com"},
+  {"test_case": "Valid Input - Uppercase Email", "description": "A valid email address with uppercase characters.", "expected_result": "Pass", "input": "Test@Example.COM"},
+  {"test_case": "Valid Input - Number in Email", "description": "A valid email address containing numbers.", "expected_result": "Pass", "input": "123test@example.com"},
+  {"test_case": "Invalid Input - Null", "description": "Testing null input.", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Testing empty string input.", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Missing @ Symbol", "description": "Testing missing @ symbol.", "expected_result": "Fail", "input": "test example.com"},
+  {"test_case": "Invalid Input - Missing Domain", "description": "Testing missing domain part.", "expected_result": "Fail", "input": "test@"},
+  {"test_case": "Invalid Input - Missing Local Part", "description": "Testing missing local part.", "expected_result": "Fail", "input": "@example.com"},
+  {"test_case": "Invalid Input - Invalid Characters", "description": "Testing invalid characters in the email address.", "expected_result": "Fail", "input": "test@example.com!"},
+  {"test_case": "Invalid Input - Only Numbers", "description": "Testing input with only numbers.", "expected_result": "Fail", "input": "1234567890"},
+  {"test_case": "Invalid Input - Only Special Characters", "description": "Testing input with only special characters.", "expected_result": "Fail", "input": "!@#$%^&*()"},
+  {"test_case": "Invalid Input - Too Long Email", "description": "Testing an email address that exceeds the maximum length limit (simulated).", "expected_result": "Fail", "input": "this_is_a_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_long_email_address_that_exceeds_the_maximum_length_limit@example.com"},
+  {"test_case": "Edge Case - Email with only one character local part", "description": "Testing a valid email with a short local part", "expected_result": "Pass", "input": "a@example.com"},
+  {"test_case": "Edge Case - Email with multiple dots in local part", "description": "Testing a valid email with multiple dots in the local part", "expected_result": "Pass", "input": "user.name.test@example.com"},
+  {"test_case": "Edge Case - Email with hyphen in local part", "description": "Testing a valid email with a hyphen in the local part", "expected_result": "Pass", "input": "user-name@example.com"},
+  {"test_case": "Edge Case - Email with underscore in local part", "description": "Testing a valid email with an underscore in the local part", "expected_result": "Pass", "input": "user_name@example.com"},
+  {"test_case": "Boundary Condition - Maximum length email (system dependent)", "description": "Testing an email at the maximum length allowed (this value is system dependent and should be verified)", "expected_result": "Pass", "input": "averylongusernamethatisclosetothe
+--------------------------------------------------------------------------------
+Attempt 2 failed: Unterminated string starting at: line 20 column 238 (char 3611)
+Could not parse JSON after cleaning. Please check the LLM output.
+Failed to generate or parse test cases for Rx BC Email
+Failed to generate test cases for Rx BC Email
+Generating test cases for: Rx BC First Name...
+Generating test cases for Rx BC First Name...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {"test_case": "Valid Input - Alphanumeric", "description": "Valid alphanumeric first name", "expected_result": "Pass", "input": "John Doe"},
+  {"test_case": "Valid Input - Alphabetic", "description": "Valid alphabetic first name", "expected_result": "Pass", "input": "Alice"},
+  {"test_case": "Valid Input - Single Character", "description": "Valid single character first name", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Valid Input - With Apostrophe", "description": "Valid first name with an apostrophe", "expected_result": "Pass", "input": "O'Malley"},
+  {"test_case": "Valid Input - With Hyphen", "description": "Valid first name with a hyphen", "expected_result": "Pass", "input": "Jean-Pierre"},
+  {"test_case": "Valid Input - Leading and Trailing Spaces", "description": "Valid first name with leading and trailing spaces (should be trimmed)", "expected_result": "Pass", "input": "  Robert  "},
+  {"test_case": "Valid Input - Unicode Characters", "description": "Valid first name with Unicode characters", "expected_result": "Pass", "input": "张三"},
+  {"test_case": "Invalid Input - Null", "description": "Null input", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Empty string input", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "String with only spaces", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Numeric Only", "description": "Numeric only input", "expected_result": "Fail", "input": "123"},
+  {"test_case": "Invalid Input - Special Characters Only", "description": "Special characters only input", "expected_result": "Fail", "input": "!@#$%^&*()"},
+  {"test_case": "Invalid Input - Long String", "description": "String exceeding maximum length (assuming a reasonable maximum length)", "expected_result": "Fail", "input": "ThisIsAVeryVeryVeryVeryVeryVeryVeryLongFirstNameThatExceedsTheMaximumLength"},
+  {"test_case": "Edge Case - Maximum Length String (assuming a reasonable maximum length)", "description": "String at maximum allowed length", "expected_result": "Pass", "input": "ThisIsALongButValidFirstName"},
+  {"test_case": "Boundary Condition - Minimum Length String", "description": "String with minimum length (one character)", "expected_result": "Pass", "input": "J"},
+  {"test_case": "Boundary Condition - Leading and Trailing Whitespace Only", "description": "Leading and trailing whitespace only", "expected_result": "Fail", "input": "     "},
+  {"test_case": "Boundary Condition -  Multiple Spaces within Name", "description": "Multiple spaces within the name", "expected_result": "Pass", "input": "John  Doe"}
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {"test_case": "Valid Input - Alphanumeric", "description": "Valid alphanumeric first name", "expected_result": "Pass", "input": "John Doe"},
+  {"test_case": "Valid Input - Alphabetic", "description": "Valid alphabetic first name", "expected_result": "Pass", "input": "Alice"},
+  {"test_case": "Valid Input - Single Character", "description": "Valid single character first name", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Valid Input - With Apostrophe", "description": "Valid first name with an apostrophe", "expected_result": "Pass", "input": "O'Malley"},
+  {"test_case": "Valid Input - With Hyphen", "description": "Valid first name with a hyphen", "expected_result": "Pass", "input": "Jean-Pierre"},
+  {"test_case": "Valid Input - Leading and Trailing Spaces", "description": "Valid first name with leading and trailing spaces (should be trimmed)", "expected_result": "Pass", "input": "  Robert  "},
+  {"test_case": "Valid Input - Unicode Characters", "description": "Valid first name with Unicode characters", "expected_result": "Pass", "input": "张三"},
+  {"test_case": "Invalid Input - Null", "description": "Null input", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Empty string input", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "String with only spaces", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Numeric Only", "description": "Numeric only input", "expected_result": "Fail", "input": "123"},
+  {"test_case": "Invalid Input - Special Characters Only", "description": "Special characters only input", "expected_result": "Fail", "input": "!@#$%^&*()"},
+  {"test_case": "Invalid Input - Long String", "description": "String exceeding maximum length (assuming a reasonable maximum length)", "expected_result": "Fail", "input": "ThisIsAVeryVeryVeryVeryVeryVeryVeryLongFirstNameThatExceedsTheMaximumLength"},
+  {"test_case": "Edge Case - Maximum Length String (assuming a reasonable maximum length)", "description": "String at maximum allowed length", "expected_result": "Pass", "input": "ThisIsALongButValidFirstName"},
+  {"test_case": "Boundary Condition - Minimum Length String", "description": "String with minimum length (one character)", "expected_result": "Pass", "input": "J"},
+  {"test_case": "Boundary Condition - Leading and Trailing Whitespace Only", "description": "Leading and trailing whitespace only", "expected_result": "Fail", "input": "     "},
+  {"test_case": "Boundary Condition -  Multiple Spaces within Name", "description": "Multiple spaces within the name", "expected_result": "Pass", "input": "John  Doe"}
+]
+--------------------------------------------------------------------------------
+Successfully generated 17 test cases for Rx BC First Name
+Generating test cases for: Rx BC Last Name...
+Generating test cases for Rx BC Last Name...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {"test_case": "Valid Input - Short Name", "description": "A short, valid last name.", "expected_result": "Pass", "input": "Lee"},
+  {"test_case": "Valid Input - Medium Name", "description": "A medium-length, valid last name.", "expected_result": "Pass", "input": "Anderson"},
+  {"test_case": "Valid Input - Long Name", "description": "A long, valid last name.", "expected_result": "Pass", "input": "MacDonald-Smith-Johnson"},
+  {"test_case": "Valid Input - Name with Apostrophe", "description": "A last name containing an apostrophe.", "expected_result": "Pass", "input": "O'Malley"},
+  {"test_case": "Valid Input - Name with Hyphen", "description": "A last name containing a hyphen.", "expected_result": "Pass", "input": "Smith-Jones"},
+  {"test_case": "Valid Input - Name with Accents", "description": "A last name containing accented characters.", "expected_result": "Pass", "input": "Müller"},
+  {"test_case": "Valid Input - Name with Numbers (Edge Case)", "description": "A last name containing numbers (though generally discouraged).", "expected_result": "Pass", "input": "Smith23"},
+  {"test_case": "Valid Input - All Capital Letters", "description": "A last name in all capital letters.", "expected_result": "Pass", "input": "JOHNSON"},
+  {"test_case": "Valid Input - All Lowercase Letters", "description": "A last name in all lowercase letters.", "expected_result": "Pass", "input": "johnson"},
+  {"test_case": "Valid Input - Mixed Case Letters", "description": "A last name with mixed case letters.", "expected_result": "Pass", "input": "sMiTh"},
+  {"test_case": "Invalid Input - Null", "description": "Null value.", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Empty string.", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "String containing only spaces.", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Special Characters Only", "description": "String containing only special characters.", "expected_result": "Fail", "input": "!@#$%^&*()"},
+  {"test_case": "Invalid Input - Extremely Long Name", "description": "A very long last name exceeding typical database limits (boundary condition).", "expected_result": "Fail", "input": "ThisIsAnExtremelyLongLastNameThatExceedsTheMaximumAllowableLengthForThisFieldAndShouldResultInAnError"},
+  {"test_case": "Invalid Input - Unprintable Characters", "description": "String containing unprintable characters.", "expected_result": "Fail", "input": "\u0000"},
+  {"test_case": "Boundary Condition - Maximum Length", "description": "String at the maximum allowable length (assuming a limit exists).", "expected_result": "Pass", "input": "Smith".repeat(50)},
+  {"test_case": "Boundary Condition - Minimum Length", "description": "String of length one.", "expected_result": "Pass", "input": "A"}
+
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {"test_case": "Valid Input - Short Name", "description": "A short, valid last name.", "expected_result": "Pass", "input": "Lee"},
+  {"test_case": "Valid Input - Medium Name", "description": "A medium-length, valid last name.", "expected_result": "Pass", "input": "Anderson"},
+  {"test_case": "Valid Input - Long Name", "description": "A long, valid last name.", "expected_result": "Pass", "input": "MacDonald-Smith-Johnson"},
+  {"test_case": "Valid Input - Name with Apostrophe", "description": "A last name containing an apostrophe.", "expected_result": "Pass", "input": "O'Malley"},
+  {"test_case": "Valid Input - Name with Hyphen", "description": "A last name containing a hyphen.", "expected_result": "Pass", "input": "Smith-Jones"},
+  {"test_case": "Valid Input - Name with Accents", "description": "A last name containing accented characters.", "expected_result": "Pass", "input": "Müller"},
+  {"test_case": "Valid Input - Name with Numbers (Edge Case)", "description": "A last name containing numbers (though generally discouraged).", "expected_result": "Pass", "input": "Smith23"},
+  {"test_case": "Valid Input - All Capital Letters", "description": "A last name in all capital letters.", "expected_result": "Pass", "input": "JOHNSON"},
+  {"test_case": "Valid Input - All Lowercase Letters", "description": "A last name in all lowercase letters.", "expected_result": "Pass", "input": "johnson"},
+  {"test_case": "Valid Input - Mixed Case Letters", "description": "A last name with mixed case letters.", "expected_result": "Pass", "input": "sMiTh"},
+  {"test_case": "Invalid Input - Null", "description": "Null value.", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Empty string.", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "String containing only spaces.", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Special Characters Only", "description": "String containing only special characters.", "expected_result": "Fail", "input": "!@#$%^&*()"},
+  {"test_case": "Invalid Input - Extremely Long Name", "description": "A very long last name exceeding typical database limits (boundary condition).", "expected_result": "Fail", "input": "ThisIsAnExtremelyLongLastNameThatExceedsTheMaximumAllowableLengthForThisFieldAndShouldResultInAnError"},
+  {"test_case": "Invalid Input - Unprintable Characters", "description": "String containing unprintable characters.", "expected_result": "Fail", "input": "u0000"},
+  {"test_case": "Boundary Condition - Maximum Length", "description": "String at the maximum allowable length (assuming a limit exists).", "expected_result": "Pass", "input": "Smith".repeat(50)},
+  {"test_case": "Boundary Condition - Minimum Length", "description": "String of length one.", "expected_result": "Pass", "input": "A"}
+
+]
+--------------------------------------------------------------------------------
+Attempt 2 failed: Expecting ',' delimiter: line 18 column 183 (char 2745)
+Could not parse JSON after cleaning. Please check the LLM output.
+Failed to generate or parse test cases for Rx BC Last Name
+Failed to generate test cases for Rx BC Last Name
+Processing parent field: Rx BC Email Event...
+Generating test cases for: Rx BC Email...
+Generating test cases for Rx BC Email...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {
+    "test_case": "Valid Input - Simple Email",
+    "description": "A basic valid email address.",
+    "expected_result": "Pass",
+    "input": "test@example.com"
+  },
+  {
+    "test_case": "Valid Input - Complex Email",
+    "description": "A more complex, but valid email address.",
+    "expected_result": "Pass",
+    "input": "firstname.lastname+alias@subdomain.example.co.uk"
+  },
+  {
+    "test_case": "Valid Input - Long Email",
+    "description": "A long email address, within reasonable limits.",
+    "expected_result": "Pass",
+    "input": "verylongname@averyverylongdomainname.com"
+  },
+  {
+    "test_case": "Valid Input - International Email",
+    "description": "Email with international characters in the local part.",
+    "expected_result": "Pass",
+    "input": "testüöä@example.com"
+  },
+  {
+    "test_case": "Invalid Input - Null",
+    "description": "Testing for null input.",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "Invalid Input - Empty String",
+    "description": "Testing for an empty string.",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "Invalid Input - Missing @ Symbol",
+    "description": "Testing for a missing '@' symbol.",
+    "expected_result": "Fail",
+    "input": "test example.com"
+  },
+  {
+    "test_case": "Invalid Input - Missing Domain",
+    "description": "Testing for a missing domain.",
+    "expected_result": "Fail",
+    "input": "test@"
+  },
+  {
+    "test_case": "Invalid Input - Only @ Symbol",
+    "description": "Testing for only the '@' symbol.",
+    "expected_result": "Fail",
+    "input": "@"
+  },
+  {
+    "test_case": "Invalid Input - Invalid Characters",
+    "description": "Testing for invalid characters in the email address.",
+    "expected_result": "Fail",
+    "input": "test!@example.com"
+  },
+  {
+    "test_case": "Invalid Input - Too Many Periods",
+    "description": "Testing for too many periods in the local part.",
+    "expected_result": "Fail",
+    "input": "test..@example.com"
+
+  },
+  {
+    "test_case": "Invalid Input - Leading/Trailing Spaces",
+    "description": "Testing for leading or trailing spaces.",
+    "expected_result": "Fail",
+    "input": " test@example.com "
+  },
+  {
+    "test_case": "Boundary Condition - Maximum Length",
+    "description": "Testing the maximum length of the email address (approximation).",
+    "expected_result": "Pass/Fail (depends on implementation)",
+    "input": "thisisalongemailifitislongerthan254charactersithinkitmightfail@example.com"
+  },
+  {
+    "test_case": "Boundary Condition - Minimum Length (valid)",
+    "description": "Testing minimum valid length of an email address.",
+    "expected_result": "Pass",
+    "input": "a@b.c"
+  }
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {
+    "test_case": "Valid Input - Simple Email",
+    "description": "A basic valid email address.",
+    "expected_result": "Pass",
+    "input": "test@example.com"
+  },
+  {
+    "test_case": "Valid Input - Complex Email",
+    "description": "A more complex, but valid email address.",
+    "expected_result": "Pass",
+    "input": "firstname.lastname+alias@subdomain.example.co.uk"
+  },
+  {
+    "test_case": "Valid Input - Long Email",
+    "description": "A long email address, within reasonable limits.",
+    "expected_result": "Pass",
+    "input": "verylongname@averyverylongdomainname.com"
+  },
+  {
+    "test_case": "Valid Input - International Email",
+    "description": "Email with international characters in the local part.",
+    "expected_result": "Pass",
+    "input": "testüöä@example.com"
+  },
+  {
+    "test_case": "Invalid Input - Null",
+    "description": "Testing for null input.",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "Invalid Input - Empty String",
+    "description": "Testing for an empty string.",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "Invalid Input - Missing @ Symbol",
+    "description": "Testing for a missing '@' symbol.",
+    "expected_result": "Fail",
+    "input": "test example.com"
+  },
+  {
+    "test_case": "Invalid Input - Missing Domain",
+    "description": "Testing for a missing domain.",
+    "expected_result": "Fail",
+    "input": "test@"
+  },
+  {
+    "test_case": "Invalid Input - Only @ Symbol",
+    "description": "Testing for only the '@' symbol.",
+    "expected_result": "Fail",
+    "input": "@"
+  },
+  {
+    "test_case": "Invalid Input - Invalid Characters",
+    "description": "Testing for invalid characters in the email address.",
+    "expected_result": "Fail",
+    "input": "test!@example.com"
+  },
+  {
+    "test_case": "Invalid Input - Too Many Periods",
+    "description": "Testing for too many periods in the local part.",
+    "expected_result": "Fail",
+    "input": "test..@example.com"
+
+  },
+  {
+    "test_case": "Invalid Input - Leading/Trailing Spaces",
+    "description": "Testing for leading or trailing spaces.",
+    "expected_result": "Fail",
+    "input": " test@example.com "
+  },
+  {
+    "test_case": "Boundary Condition - Maximum Length",
+    "description": "Testing the maximum length of the email address (approximation).",
+    "expected_result": "Pass/Fail (depends on implementation)",
+    "input": "thisisalongemailifitislongerthan254charactersithinkitmightfail@example.com"
+  },
+  {
+    "test_case": "Boundary Condition - Minimum Length (valid)",
+    "description": "Testing minimum valid length of an email address.",
+    "expected_result": "Pass",
+    "input": "a@b.c"
+  }
+]
+--------------------------------------------------------------------------------
+Successfully generated 14 test cases for Rx BC Email
+Generating test cases for: Rx BC Email Template Info...
+Generating test cases for Rx BC Email Template Info...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {"test_case": "Valid Input - Short String", "description": "A short, valid email template name.", "expected_result": "Pass", "input": "TemplateA"},
+  {"test_case": "Valid Input - Long String", "description": "A long, valid email template name within reasonable limits.", "expected_result": "Pass", "input": "ThisIsALongEmailTemplateNameForRxBCWithLotsOfCharactersToTestBoundaryConditions"},
+  {"test_case": "Valid Input - Alphanumeric String", "description": "String with alphanumeric characters.", "expected_result": "Pass", "input": "Template123"},
+  {"test_case": "Valid Input - String with Special Characters", "description": "String with allowed special characters.", "expected_result": "Pass", "input": "Template_with-special.chars"},
+  {"test_case": "Valid Input - String with Spaces", "description": "String with spaces.", "expected_result": "Pass", "input": "Rx BC Email Template"},
+  {"test_case": "Invalid Input - Null", "description": "Null value.", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Empty string.", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "String with only spaces.", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Non-Printable Characters", "description": "String containing non-printable characters.", "expected_result": "Fail", "input": "\u0000"},
+  {"test_case": "Edge Case - Very Long String", "description": "Exceedingly long string that might exceed database limits (check your database limits).", "expected_result": "Fail", "input": "ThisIsAnExtremelyLongStringThatExceedsAnyReasonableLengthLimitForAnEmailTemplateNameAndShouldDefinitelyFailTheTestToProveTheSystemCanHandleSuchSituationsGracefullyWithoutCrashingOrThrowingExceptionsOrAnyUnexpectedBehaviorThatMayAriseFromSuchCases"},
+  {"test_case": "Edge Case - String with Leading/Trailing Spaces", "description": "String with leading and trailing spaces.", "expected_result": "Fail", "input": "  Template with spaces  "},
+  {"test_case": "Boundary Condition - Maximum Length String", "description": "String at the maximum allowed length (check your system's constraints).", "expected_result": "Pass", "input": "ThisIsAStringAtTheMaximumAllowedLengthAccordingToSystemConstraints"},
+  {"test_case": "Boundary Condition - Minimum Length String", "description": "String at the minimum allowed length (assuming one character is the minimum).", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Invalid Input - Unicode Characters", "description": "String with Unicode characters (test a wide range of characters).", "expected_result": "Pass", "input": "你好世界"},
+  {"test_case": "Invalid Input - Control Characters", "description": "String with control characters (e.g., tab, newline).", "expected_result": "Fail", "input": "Template\twith\ncontrol\rcharacters"},
+    {"test_case": "Invalid Input -  Emoji", "description": "String with emojis.", "expected_result": "Pass", "input": "Template😀with😊emoji"},
+    {"test_case": "Invalid Input -  Numbers Only", "description": "String with only numbers.", "expected_result": "Pass", "input": "12345"},
+    {"test_case": "Invalid Input -  Special Characters Only", "description": "String with only special characters.", "expected_result": "Fail", "input": "!@#$%^&*()_+=-`~[]\{}|;':\",./<>?"}
+
+
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {"test_case": "Valid Input - Short String", "description": "A short, valid email template name.", "expected_result": "Pass", "input": "TemplateA"},
+  {"test_case": "Valid Input - Long String", "description": "A long, valid email template name within reasonable limits.", "expected_result": "Pass", "input": "ThisIsALongEmailTemplateNameForRxBCWithLotsOfCharactersToTestBoundaryConditions"},
+  {"test_case": "Valid Input - Alphanumeric String", "description": "String with alphanumeric characters.", "expected_result": "Pass", "input": "Template123"},
+  {"test_case": "Valid Input - String with Special Characters", "description": "String with allowed special characters.", "expected_result": "Pass", "input": "Template_with-special.chars"},
+  {"test_case": "Valid Input - String with Spaces", "description": "String with spaces.", "expected_result": "Pass", "input": "Rx BC Email Template"},
+  {"test_case": "Invalid Input - Null", "description": "Null value.", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Empty string.", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "String with only spaces.", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Non-Printable Characters", "description": "String containing non-printable characters.", "expected_result": "Fail", "input": "u0000"},
+  {"test_case": "Edge Case - Very Long String", "description": "Exceedingly long string that might exceed database limits (check your database limits).", "expected_result": "Fail", "input": "ThisIsAnExtremelyLongStringThatExceedsAnyReasonableLengthLimitForAnEmailTemplateNameAndShouldDefinitelyFailTheTestToProveTheSystemCanHandleSuchSituationsGracefullyWithoutCrashingOrThrowingExceptionsOrAnyUnexpectedBehaviorThatMayAriseFromSuchCases"},
+  {"test_case": "Edge Case - String with Leading/Trailing Spaces", "description": "String with leading and trailing spaces.", "expected_result": "Fail", "input": "  Template with spaces  "},
+  {"test_case": "Boundary Condition - Maximum Length String", "description": "String at the maximum allowed length (check your system's constraints).", "expected_result": "Pass", "input": "ThisIsAStringAtTheMaximumAllowedLengthAccordingToSystemConstraints"},
+  {"test_case": "Boundary Condition - Minimum Length String", "description": "String at the minimum allowed length (assuming one character is the minimum).", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Invalid Input - Unicode Characters", "description": "String with Unicode characters (test a wide range of characters).", "expected_result": "Pass", "input": "你好世界"},
+  {"test_case": "Invalid Input - Control Characters", "description": "String with control characters (e.g., tab, newline).", "expected_result": "Fail", "input": "Templatetwithncontrolrcharacters"},
+    {"test_case": "Invalid Input -  Emoji", "description": "String with emojis.", "expected_result": "Pass", "input": "Template😀with😊emoji"},
+    {"test_case": "Invalid Input -  Numbers Only", "description": "String with only numbers.", "expected_result": "Pass", "input": "12345"},
+    {"test_case": "Invalid Input -  Special Characters Only", "description": "String with only special characters.", "expected_result": "Fail", "input": "!@#$%^&*()_+=-`~[]{}|;':",./<>?"}
+
+
+]
+--------------------------------------------------------------------------------
+Attempt 2 failed: Expecting property name enclosed in double quotes: line 19 column 181 (char 3367)
+Could not parse JSON after cleaning. Please check the LLM output.
+Failed to generate or parse test cases for Rx BC Email Template Info
+Failed to generate test cases for Rx BC Email Template Info
+Generating test cases for: Rx BC Event ID...
+Generating test cases for Rx BC Event ID...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {
+    "test_case": "Valid Input - Alphanumeric",
+    "description": "Valid alphanumeric input with spaces",
+    "expected_result": "Pass",
+    "input": "ABC 123 XYZ"
+  },
+  {
+    "test_case": "Valid Input - Numeric Only",
+    "description": "Valid input containing only numbers",
+    "expected_result": "Pass",
+    "input": "1234567890"
+  },
+  {
+    "test_case": "Valid Input - Alphabetic Only",
+    "description": "Valid input containing only alphabets",
+    "expected_result": "Pass",
+    "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  },
+  {
+    "test_case": "Valid Input - Special Characters",
+    "description": "Valid input with allowed special characters",
+    "expected_result": "Pass",
+    "input": "ABC-123_XYZ!"
+  },
+  {
+    "test_case": "Valid Input - Long String",
+    "description": "Valid input exceeding average length",
+    "expected_result": "Pass",
+    "input": "This is a long string to test the maximum length of the Rx BC Event ID field."
+  },
+  {
+    "test_case": "Valid Input - Single Character",
+    "description": "Valid input with a single character",
+    "expected_result": "Pass",
+    "input": "A"
+  },
+  {
+    "test_case": "Invalid Input - Null",
+    "description": "Null input - violates NOT NULL constraint",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "Invalid Input - Empty String",
+    "description": "Empty string - violates NotBlank constraint",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "Invalid Input - Whitespace Only",
+    "description": "Whitespace only - violates NotBlank constraint",
+    "expected_result": "Fail",
+    "input": "   "
+  },
+  {
+    "test_case": "Invalid Input - Unallowed Special Characters",
+    "description": "Input with unallowed special characters",
+    "expected_result": "Fail",
+    "input": "ABC\"<>/?\\|~!@#$%^&*()"
+  },
+  {
+    "test_case": "Boundary Condition - Maximum Length",
+    "description": "Input at the maximum allowable length (assuming a limit exists)",
+    "expected_result": "Pass",
+    "input": "This is a very long string to test the maximum length limit of the Rx BC Event ID field.  This is a very long string to test the maximum length limit of the Rx BC Event ID field. This is a very long string to test the maximum length limit of the Rx BC Event ID field."
+  },
+  {
+    "test_case": "Boundary Condition - Minimum Length",
+    "description": "Input at the minimum allowable length (assuming a limit exists - 1 character)",
+    "expected_result": "Pass",
+    "input": "A"
+  }
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {
+    "test_case": "Valid Input - Alphanumeric",
+    "description": "Valid alphanumeric input with spaces",
+    "expected_result": "Pass",
+    "input": "ABC 123 XYZ"
+  },
+  {
+    "test_case": "Valid Input - Numeric Only",
+    "description": "Valid input containing only numbers",
+    "expected_result": "Pass",
+    "input": "1234567890"
+  },
+  {
+    "test_case": "Valid Input - Alphabetic Only",
+    "description": "Valid input containing only alphabets",
+    "expected_result": "Pass",
+    "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  },
+  {
+    "test_case": "Valid Input - Special Characters",
+    "description": "Valid input with allowed special characters",
+    "expected_result": "Pass",
+    "input": "ABC-123_XYZ!"
+  },
+  {
+    "test_case": "Valid Input - Long String",
+    "description": "Valid input exceeding average length",
+    "expected_result": "Pass",
+    "input": "This is a long string to test the maximum length of the Rx BC Event ID field."
+  },
+  {
+    "test_case": "Valid Input - Single Character",
+    "description": "Valid input with a single character",
+    "expected_result": "Pass",
+    "input": "A"
+  },
+  {
+    "test_case": "Invalid Input - Null",
+    "description": "Null input - violates NOT NULL constraint",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "Invalid Input - Empty String",
+    "description": "Empty string - violates NotBlank constraint",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "Invalid Input - Whitespace Only",
+    "description": "Whitespace only - violates NotBlank constraint",
+    "expected_result": "Fail",
+    "input": "   "
+  },
+  {
+    "test_case": "Invalid Input - Unallowed Special Characters",
+    "description": "Input with unallowed special characters",
+    "expected_result": "Fail",
+    "input": "ABC"<>/?|~!@#$%^&*()"
+  },
+  {
+    "test_case": "Boundary Condition - Maximum Length",
+    "description": "Input at the maximum allowable length (assuming a limit exists)",
+    "expected_result": "Pass",
+    "input": "This is a very long string to test the maximum length limit of the Rx BC Event ID field.  This is a very long string to test the maximum length limit of the Rx BC Event ID field. This is a very long string to test the maximum length limit of the Rx BC Event ID field."
+  },
+  {
+    "test_case": "Boundary Condition - Minimum Length",
+    "description": "Input at the minimum allowable length (assuming a limit exists - 1 character)",
+    "expected_result": "Pass",
+    "input": "A"
+  }
+]
+--------------------------------------------------------------------------------
+Attempt 2 failed: Expecting ',' delimiter: line 60 column 19 (char 1823)
+Could not parse JSON after cleaning. Please check the LLM output.
+Failed to generate or parse test cases for Rx BC Event ID
+Failed to generate test cases for Rx BC Event ID
+Generating test cases for: Rx BC Event Type...
+Generating test cases for Rx BC Event Type...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {"test_case": "Valid Input - Short String", "description": "Valid input with a short string", "expected_result": "Pass", "input": "NewRx"},
+  {"test_case": "Valid Input - Long String", "description": "Valid input with a long string (within reasonable limits)", "expected_result": "Pass", "input": "PrescriptionRenewalRequestInitiated"},
+  {"test_case": "Valid Input - Alphanumeric String", "description": "Valid input with alphanumeric characters", "expected_result": "Pass", "input": "Rx123ABC"},
+  {"test_case": "Valid Input - String with Special Characters", "description": "Valid input with allowed special characters (e.g., hyphens, underscores)", "expected_result": "Pass", "input": "Rx-Event_Type"},
+  {"test_case": "Valid Input - String with Spaces", "description": "Valid input with spaces", "expected_result": "Pass", "input": "Rx BC Event Type"},
+  {"test_case": "Invalid Input - Null", "description": "Invalid input: NULL value", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Invalid input: Empty string", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "Invalid input: String with only spaces", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Numeric String", "description": "Invalid input: String containing only numbers", "expected_result": "Fail", "input": "12345"},
+  {"test_case": "Invalid Input - String with Unallowed Special Characters", "description": "Invalid input: String containing unallowed special characters (e.g., <, >, &, \")", "expected_result": "Fail", "input": "Rx <Event> Type"},
+  {"test_case": "Boundary Condition - Maximum Length String", "description": "Input string at the maximum allowed length (assuming a reasonable maximum)", "expected_result": "Pass", "input": "ThisIsALongStringRepresentingAMaximumLengthRxBCEventTypeDescription"},
+  {"test_case": "Boundary Condition - Minimum Length String", "description": "Input string at the minimum allowed length (one character)", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Edge Case - String with Leading/Trailing Spaces", "description": "Input string with leading and/or trailing spaces", "expected_result": "Fail", "input": "  Rx Event Type  "},
+  {"test_case": "Edge Case - String with Unicode Characters", "description": "Input string with Unicode characters", "expected_result": "Pass", "input": "Rx事件类型"},
+  {"test_case": "Edge Case - String with Control Characters", "description": "Input string with control characters (excluding newline)", "expected_result": "Fail", "input": "Rx\u0001Event"},
+  {"test_case": "Edge Case - Very Long String (Exceeding Limit)", "description": "Input string exceeding the maximum allowed length (assuming a reasonable maximum)", "expected_result": "Fail", "input": "ThisIsAVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongStringExceedingTheMaximumAllowedLengthForRxBCEventTypeDescription"}
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {"test_case": "Valid Input - Short String", "description": "Valid input with a short string", "expected_result": "Pass", "input": "NewRx"},
+  {"test_case": "Valid Input - Long String", "description": "Valid input with a long string (within reasonable limits)", "expected_result": "Pass", "input": "PrescriptionRenewalRequestInitiated"},
+  {"test_case": "Valid Input - Alphanumeric String", "description": "Valid input with alphanumeric characters", "expected_result": "Pass", "input": "Rx123ABC"},
+  {"test_case": "Valid Input - String with Special Characters", "description": "Valid input with allowed special characters (e.g., hyphens, underscores)", "expected_result": "Pass", "input": "Rx-Event_Type"},
+  {"test_case": "Valid Input - String with Spaces", "description": "Valid input with spaces", "expected_result": "Pass", "input": "Rx BC Event Type"},
+  {"test_case": "Invalid Input - Null", "description": "Invalid input: NULL value", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Invalid input: Empty string", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "Invalid input: String with only spaces", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Numeric String", "description": "Invalid input: String containing only numbers", "expected_result": "Fail", "input": "12345"},
+  {"test_case": "Invalid Input - String with Unallowed Special Characters", "description": "Invalid input: String containing unallowed special characters (e.g., <, >, &, ")", "expected_result": "Fail", "input": "Rx <Event> Type"},
+  {"test_case": "Boundary Condition - Maximum Length String", "description": "Input string at the maximum allowed length (assuming a reasonable maximum)", "expected_result": "Pass", "input": "ThisIsALongStringRepresentingAMaximumLengthRxBCEventTypeDescription"},
+  {"test_case": "Boundary Condition - Minimum Length String", "description": "Input string at the minimum allowed length (one character)", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Edge Case - String with Leading/Trailing Spaces", "description": "Input string with leading and/or trailing spaces", "expected_result": "Fail", "input": "  Rx Event Type  "},
+  {"test_case": "Edge Case - String with Unicode Characters", "description": "Input string with Unicode characters", "expected_result": "Pass", "input": "Rx事件类型"},
+  {"test_case": "Edge Case - String with Control Characters", "description": "Input string with control characters (excluding newline)", "expected_result": "Fail", "input": "Rxu0001Event"},
+  {"test_case": "Edge Case - Very Long String (Exceeding Limit)", "description": "Input string exceeding the maximum allowed length (assuming a reasonable maximum)", "expected_result": "Fail", "input": "ThisIsAVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongStringExceedingTheMaximumAllowedLengthForRxBCEventTypeDescription"}
+]
+--------------------------------------------------------------------------------
+Attempt 2 failed: Expecting ',' delimiter: line 11 column 172 (char 1603)
+Could not parse JSON after cleaning. Please check the LLM output.
+Failed to generate or parse test cases for Rx BC Event Type
+Failed to generate test cases for Rx BC Event Type
+Generating test cases for: Rx BC New User Registration Link...
+Generating test cases for Rx BC New User Registration Link...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {"test_case": "Valid Input: Empty String", "description": "Testing with an empty string, which is a valid input due to the Nullable constraint.", "expected_result": "Pass", "input": ""},
+  {"test_case": "Valid Input: Short String", "description": "Testing with a short string.", "expected_result": "Pass", "input": "short"},
+  {"test_case": "Valid Input: Long String", "description": "Testing with a long string (within reasonable limits for a URL).", "expected_result": "Pass", "input": "https://www.example.com/very/long/path/to/registration/page/with/lots/of/parameters?param1=value1&param2=value2&param3=value3"},
+  {"test_case": "Valid Input: URL with Query Parameters", "description": "Testing with a URL containing query parameters.", "expected_result": "Pass", "input": "https://www.example.com/register?ref=source"},
+  {"test_case": "Valid Input: URL with Fragments", "description": "Testing with a URL containing fragments.", "expected_result": "Pass", "input": "https://www.example.com/register#section"},
+  {"test_case": "Valid Input:  Alphanumeric with Special Characters", "description": "Testing with alphanumeric characters and allowed special characters in a URL.", "expected_result": "Pass", "input": "https://www.example.com/register?id=abc-123"},
+  {"test_case": "Valid Input:  Null Value", "description": "Testing with a null value, which is allowed due to the Nullable constraint.", "expected_result": "Pass", "input": null},
+  {"test_case": "Invalid Input:  Non-String Type (Integer)", "description": "Testing with an integer, which should be invalid.", "expected_result": "Fail", "input": 123},
+  {"test_case": "Invalid Input:  Non-String Type (Boolean)", "description": "Testing with a boolean, which should be invalid.", "expected_result": "Fail", "input": true},
+  {"test_case": "Invalid Input:  Non-String Type (Object)", "description": "Testing with an object, which should be invalid.", "expected_result": "Fail", "input": {"key": "value"}},
+  {"test_case": "Invalid Input:  Non-String Type (Array)", "description": "Testing with an array, which should be invalid.", "expected_result": "Fail", "input": ["a", "b", "c"]},
+  {"test_case": "Invalid Input: Extremely Long String", "description": "Testing with an extremely long string, exceeding reasonable URL length limits.  This might cause issues depending on the system's implementation.", "expected_result": "Fail", "input": "a".repeat(10000)},
+  {"test_case": "Invalid Input: String with Control Characters", "description": "Testing with a string containing control characters, which are generally invalid in URLs.", "expected_result": "Fail", "input": "This string\u0000contains control characters."},
+  {"test_case": "Invalid Input:  String with only whitespace", "description": "Testing with a string containing only whitespace characters.", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Boundary Condition: Maximum Length String (Check system limitations)", "description": "Testing the maximum allowed string length, which depends on the database and application limits. This test requires knowing system constraints.", "expected_result": "Pass/Fail (depending on system limits)", "input": "a".repeat(2048)} 
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {"test_case": "Valid Input: Empty String", "description": "Testing with an empty string, which is a valid input due to the Nullable constraint.", "expected_result": "Pass", "input": ""},
+  {"test_case": "Valid Input: Short String", "description": "Testing with a short string.", "expected_result": "Pass", "input": "short"},
+  {"test_case": "Valid Input: Long String", "description": "Testing with a long string (within reasonable limits for a URL).", "expected_result": "Pass", "input": "https://www.example.com/very/long/path/to/registration/page/with/lots/of/parameters?param1=value1&param2=value2&param3=value3"},
+  {"test_case": "Valid Input: URL with Query Parameters", "description": "Testing with a URL containing query parameters.", "expected_result": "Pass", "input": "https://www.example.com/register?ref=source"},
+  {"test_case": "Valid Input: URL with Fragments", "description": "Testing with a URL containing fragments.", "expected_result": "Pass", "input": "https://www.example.com/register#section"},
+  {"test_case": "Valid Input:  Alphanumeric with Special Characters", "description": "Testing with alphanumeric characters and allowed special characters in a URL.", "expected_result": "Pass", "input": "https://www.example.com/register?id=abc-123"},
+  {"test_case": "Valid Input:  Null Value", "description": "Testing with a null value, which is allowed due to the Nullable constraint.", "expected_result": "Pass", "input": null},
+  {"test_case": "Invalid Input:  Non-String Type (Integer)", "description": "Testing with an integer, which should be invalid.", "expected_result": "Fail", "input": 123},
+  {"test_case": "Invalid Input:  Non-String Type (Boolean)", "description": "Testing with a boolean, which should be invalid.", "expected_result": "Fail", "input": true},
+  {"test_case": "Invalid Input:  Non-String Type (Object)", "description": "Testing with an object, which should be invalid.", "expected_result": "Fail", "input": {"key": "value"}},
+  {"test_case": "Invalid Input:  Non-String Type (Array)", "description": "Testing with an array, which should be invalid.", "expected_result": "Fail", "input": ["a", "b", "c"]},
+  {"test_case": "Invalid Input: Extremely Long String", "description": "Testing with an extremely long string, exceeding reasonable URL length limits.  This might cause issues depending on the system's implementation.", "expected_result": "Fail", "input": "a".repeat(10000)},
+  {"test_case": "Invalid Input: String with Control Characters", "description": "Testing with a string containing control characters, which are generally invalid in URLs.", "expected_result": "Fail", "input": "This stringu0000contains control characters."},
+  {"test_case": "Invalid Input:  String with only whitespace", "description": "Testing with a string containing only whitespace characters.", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Boundary Condition: Maximum Length String (Check system limitations)", "description": "Testing the maximum allowed string length, which depends on the database and application limits. This test requires knowing system constraints.", "expected_result": "Pass/Fail (depending on system limits)", "input": "a".repeat(2048)} 
+]
+--------------------------------------------------------------------------------
+Attempt 2 failed: Expecting ',' delimiter: line 13 column 260 (char 2414)
+Could not parse JSON after cleaning. Please check the LLM output.
+Failed to generate or parse test cases for Rx BC New User Registration Link
+Failed to generate test cases for Rx BC New User Registration Link
+Generating test cases for: Rx BC Timestamp...
+Generating test cases for Rx BC Timestamp...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {
+    "test_case": "Valid Input - Current Date",
+    "description": "Valid date in AEP timestamp format (e.g., YYYY-MM-DD)",
+    "expected_result": "Pass",
+    "input": "2024-10-27"
+  },
+  {
+    "test_case": "Valid Input - Past Date",
+    "description": "Valid past date in AEP timestamp format",
+    "expected_result": "Pass",
+    "input": "2023-01-15"
+  },
+  {
+    "test_case": "Valid Input - Future Date",
+    "description": "Valid future date in AEP timestamp format",
+    "expected_result": "Pass",
+    "input": "2025-12-31"
+  },
+  {
+    "test_case": "Valid Input - Leap Year",
+    "description": "Valid date in a leap year",
+    "expected_result": "Pass",
+    "input": "2024-02-29"
+  },
+  {
+    "test_case": "Invalid Input - Null",
+    "description": "Null value, violating 'Not Null' constraint",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "Invalid Input - Empty String",
+    "description": "Empty string, violating 'Not Null' and 'Valid AEP timestamp format' constraints",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "Invalid Input - Incorrect Format",
+    "description": "Incorrect date format, violating 'Valid AEP timestamp format' constraint",
+    "expected_result": "Fail",
+    "input": "10/27/2024"
+  },
+  {
+    "test_case": "Invalid Input - Invalid Date",
+    "description": "Invalid date (e.g., Feb 30th), violating 'Valid AEP timestamp format' constraint",
+    "expected_result": "Fail",
+    "input": "2024-02-30"
+  },
+  {
+    "test_case": "Invalid Input - Non-numeric characters",
+    "description": "Date with non-numeric characters, violating 'Valid AEP timestamp format' constraint",
+    "expected_result": "Fail",
+    "input": "2024-10-2a"
+  },
+  {
+    "test_case": "Boundary Condition - Minimum Date",
+    "description": "Testing the earliest acceptable date (system dependent, adjust as needed)",
+    "expected_result": "Pass",
+    "input": "1900-01-01"
+  },
+  {
+    "test_case": "Boundary Condition - Maximum Date",
+    "description": "Testing the latest acceptable date (system dependent, adjust as needed)",
+    "expected_result": "Pass",
+    "input": "2100-12-31"
+  },
+  {
+    "test_case": "Edge Case -  Date at the start of the month",
+    "description": "Edge case: first day of the month",
+    "expected_result": "Pass",
+    "input": "2025-03-01"
+  },
+  {
+    "test_case": "Edge Case - Date at the end of the month",
+    "description": "Edge case: last day of the month",
+    "expected_result": "Pass",
+    "input": "2025-03-31"
+  }
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {
+    "test_case": "Valid Input - Current Date",
+    "description": "Valid date in AEP timestamp format (e.g., YYYY-MM-DD)",
+    "expected_result": "Pass",
+    "input": "2024-10-27"
+  },
+  {
+    "test_case": "Valid Input - Past Date",
+    "description": "Valid past date in AEP timestamp format",
+    "expected_result": "Pass",
+    "input": "2023-01-15"
+  },
+  {
+    "test_case": "Valid Input - Future Date",
+    "description": "Valid future date in AEP timestamp format",
+    "expected_result": "Pass",
+    "input": "2025-12-31"
+  },
+  {
+    "test_case": "Valid Input - Leap Year",
+    "description": "Valid date in a leap year",
+    "expected_result": "Pass",
+    "input": "2024-02-29"
+  },
+  {
+    "test_case": "Invalid Input - Null",
+    "description": "Null value, violating 'Not Null' constraint",
+    "expected_result": "Fail",
+    "input": null
+  },
+  {
+    "test_case": "Invalid Input - Empty String",
+    "description": "Empty string, violating 'Not Null' and 'Valid AEP timestamp format' constraints",
+    "expected_result": "Fail",
+    "input": ""
+  },
+  {
+    "test_case": "Invalid Input - Incorrect Format",
+    "description": "Incorrect date format, violating 'Valid AEP timestamp format' constraint",
+    "expected_result": "Fail",
+    "input": "10/27/2024"
+  },
+  {
+    "test_case": "Invalid Input - Invalid Date",
+    "description": "Invalid date (e.g., Feb 30th), violating 'Valid AEP timestamp format' constraint",
+    "expected_result": "Fail",
+    "input": "2024-02-30"
+  },
+  {
+    "test_case": "Invalid Input - Non-numeric characters",
+    "description": "Date with non-numeric characters, violating 'Valid AEP timestamp format' constraint",
+    "expected_result": "Fail",
+    "input": "2024-10-2a"
+  },
+  {
+    "test_case": "Boundary Condition - Minimum Date",
+    "description": "Testing the earliest acceptable date (system dependent, adjust as needed)",
+    "expected_result": "Pass",
+    "input": "1900-01-01"
+  },
+  {
+    "test_case": "Boundary Condition - Maximum Date",
+    "description": "Testing the latest acceptable date (system dependent, adjust as needed)",
+    "expected_result": "Pass",
+    "input": "2100-12-31"
+  },
+  {
+    "test_case": "Edge Case -  Date at the start of the month",
+    "description": "Edge case: first day of the month",
+    "expected_result": "Pass",
+    "input": "2025-03-01"
+  },
+  {
+    "test_case": "Edge Case - Date at the end of the month",
+    "description": "Edge case: last day of the month",
+    "expected_result": "Pass",
+    "input": "2025-03-31"
+  }
+]
+--------------------------------------------------------------------------------
+Successfully generated 13 test cases for Rx BC Timestamp
+Generating test cases for: Rx BC User Group...
+Generating test cases for Rx BC User Group...
+Sending prompt to LLM:
+
+Raw Response from LLM:
+--------------------------------------------------------------------------------
+```json
+[
+  {"test_case": "Valid Input - Alphanumeric", "description": "Valid input with alphanumeric characters", "expected_result": "Pass", "input": "GroupA123"},
+  {"test_case": "Valid Input - Special Characters Allowed", "description": "Valid input with allowed special characters (e.g., underscore, hyphen)", "expected_result": "Pass", "input": "Group_A-123"},
+  {"test_case": "Valid Input - Long String", "description": "Valid input with a long string (near the maximum allowed length, assuming a practical limit)", "expected_result": "Pass", "input": "ThisIsAVeryLongStringForTheRxBCUserGroupFieldToTestTheMaximumLengthCapability"},
+  {"test_case": "Valid Input - Short String", "description": "Valid input with a short string", "expected_result": "Pass", "input": "GroupA"},
+  {"test_case": "Valid Input - Only Numbers", "description": "Valid input containing only numbers", "expected_result": "Pass", "input": "12345"},
+  {"test_case": "Valid Input - Only Uppercase", "description": "Valid input containing only uppercase letters", "expected_result": "Pass", "input": "GROUPA"},
+  {"test_case": "Valid Input - Only Lowercase", "description": "Valid input containing only lowercase letters", "expected_result": "Pass", "input": "groupa"},
+  {"test_case": "Invalid Input - Null", "description": "Invalid input: null value", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Invalid input: empty string", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "Invalid input: string containing only spaces", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Leading/Trailing Spaces", "description": "Invalid input: string with leading and trailing spaces", "expected_result": "Fail", "input": "  GroupA  "},
+  {"test_case": "Invalid Input - Unallowed Special Characters", "description": "Invalid input: contains unallowed special characters (e.g., <, >, &, etc.)", "expected_result": "Fail", "input": "Group<A>"},
+  {"test_case": "Invalid Input - Non-Printable Characters", "description": "Invalid input: contains non-printable characters", "expected_result": "Fail", "input": "Group\u0000A"},
+  {"test_case": "Boundary Condition - Maximum Length", "description": "Test the maximum length allowed for the field (assuming a practical limit, adjust as needed)", "expected_result": "Pass", "input": "ThisIsAStringWithExactlyTheMaximumAllowedNumberOfCharactersForTheRxBCUserGroupField"},
+  {"test_case": "Boundary Condition - Minimum Length", "description": "Test the minimum length allowed for the field (assuming a practical limit, a single character should be valid)", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Edge Case - Unicode Characters", "description": "Test with various unicode characters", "expected_result": "Pass", "input": "ГруппаA"},
+  {"test_case": "Edge Case - Emoji", "description": "Test with an emoji (depending on database limitations, this might fail)", "expected_result": "Pass", "input": "😊GroupA"}
+]
+```
+
+--------------------------------------------------------------------------------
+Attempting to parse raw JSON...
+Attempt 1 failed: Expecting value: line 1 column 1 (char 0)
+Attempting to clean and parse...
+
+Cleaned JSON:
+--------------------------------------------------------------------------------
+[
+  {"test_case": "Valid Input - Alphanumeric", "description": "Valid input with alphanumeric characters", "expected_result": "Pass", "input": "GroupA123"},
+  {"test_case": "Valid Input - Special Characters Allowed", "description": "Valid input with allowed special characters (e.g., underscore, hyphen)", "expected_result": "Pass", "input": "Group_A-123"},
+  {"test_case": "Valid Input - Long String", "description": "Valid input with a long string (near the maximum allowed length, assuming a practical limit)", "expected_result": "Pass", "input": "ThisIsAVeryLongStringForTheRxBCUserGroupFieldToTestTheMaximumLengthCapability"},
+  {"test_case": "Valid Input - Short String", "description": "Valid input with a short string", "expected_result": "Pass", "input": "GroupA"},
+  {"test_case": "Valid Input - Only Numbers", "description": "Valid input containing only numbers", "expected_result": "Pass", "input": "12345"},
+  {"test_case": "Valid Input - Only Uppercase", "description": "Valid input containing only uppercase letters", "expected_result": "Pass", "input": "GROUPA"},
+  {"test_case": "Valid Input - Only Lowercase", "description": "Valid input containing only lowercase letters", "expected_result": "Pass", "input": "groupa"},
+  {"test_case": "Invalid Input - Null", "description": "Invalid input: null value", "expected_result": "Fail", "input": null},
+  {"test_case": "Invalid Input - Empty String", "description": "Invalid input: empty string", "expected_result": "Fail", "input": ""},
+  {"test_case": "Invalid Input - Only Spaces", "description": "Invalid input: string containing only spaces", "expected_result": "Fail", "input": "   "},
+  {"test_case": "Invalid Input - Leading/Trailing Spaces", "description": "Invalid input: string with leading and trailing spaces", "expected_result": "Fail", "input": "  GroupA  "},
+  {"test_case": "Invalid Input - Unallowed Special Characters", "description": "Invalid input: contains unallowed special characters (e.g., <, >, &, etc.)", "expected_result": "Fail", "input": "Group<A>"},
+  {"test_case": "Invalid Input - Non-Printable Characters", "description": "Invalid input: contains non-printable characters", "expected_result": "Fail", "input": "Groupu0000A"},
+  {"test_case": "Boundary Condition - Maximum Length", "description": "Test the maximum length allowed for the field (assuming a practical limit, adjust as needed)", "expected_result": "Pass", "input": "ThisIsAStringWithExactlyTheMaximumAllowedNumberOfCharactersForTheRxBCUserGroupField"},
+  {"test_case": "Boundary Condition - Minimum Length", "description": "Test the minimum length allowed for the field (assuming a practical limit, a single character should be valid)", "expected_result": "Pass", "input": "A"},
+  {"test_case": "Edge Case - Unicode Characters", "description": "Test with various unicode characters", "expected_result": "Pass", "input": "ГруппаA"},
+  {"test_case": "Edge Case - Emoji", "description": "Test with an emoji (depending on database limitations, this might fail)", "expected_result": "Pass", "input": "😊GroupA"}
+]
+--------------------------------------------------------------------------------
+Successfully generated 17 test cases for Rx BC User Group
+✅ Test cases saved to data/generated_test_cases.json
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1739427247.567289 1020487 init.cc:229] grpc_wait_for_shutdown_with_timeout() timed out.

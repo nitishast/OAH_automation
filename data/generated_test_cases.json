@@ -1,168 +1,684 @@
 {
-    "Rx BC Email Event.Rx BC Timestamp": [
-        {
-            "test_case": "Valid Input - Current Date",
-            "description": "Testing with the current date.",
-            "expected_result": "Pass",
-            "input": "2024-10-27"
-        },
-        {
-            "test_case": "Valid Input - Past Date",
-            "description": "Testing with a date in the past.",
-            "expected_result": "Pass",
-            "input": "2023-01-15"
-        },
-        {
-            "test_case": "Valid Input - Future Date",
-            "description": "Testing with a date in the future.",
-            "expected_result": "Pass",
-            "input": "2025-12-31"
-        },
-        {
-            "test_case": "Valid Input - Leap Year",
-            "description": "Testing with a date in a leap year.",
-            "expected_result": "Pass",
-            "input": "2024-02-29"
-        },
-        {
-            "test_case": "Valid Input - Boundary - Min Date",
-            "description": "Testing with the earliest possible date (adjust as needed).",
-            "expected_result": "Pass",
-            "input": "1900-01-01"
-        },
-        {
-            "test_case": "Valid Input - Boundary - Max Date",
-            "description": "Testing with the latest possible date (adjust as needed).",
-            "expected_result": "Pass",
-            "input": "2099-12-31"
-        },
-        {
-            "test_case": "Invalid Input - Null",
-            "description": "Testing with a null value.",
-            "expected_result": "Fail",
-            "input": null
-        },
-        {
-            "test_case": "Invalid Input - Empty String",
-            "description": "Testing with an empty string.",
-            "expected_result": "Fail",
-            "input": ""
-        },
-        {
-            "test_case": "Invalid Input - Invalid Date Format",
-            "description": "Testing with an invalid date format (e.g., MM/DD/YYYY).",
-            "expected_result": "Fail",
-            "input": "10/27/2024"
-        },
-        {
-            "test_case": "Invalid Input - Invalid Day",
-            "description": "Testing with an invalid day (e.g., Feb 30).",
-            "expected_result": "Fail",
-            "input": "2024-02-30"
-        },
-        {
-            "test_case": "Invalid Input - Invalid Month",
-            "description": "Testing with an invalid month.",
-            "expected_result": "Fail",
-            "input": "2024-13-01"
-        },
-        {
-            "test_case": "Invalid Input - Non-numeric characters",
-            "description": "Testing with non-numeric characters in the date.",
-            "expected_result": "Fail",
-            "input": "2024-10-a7"
-        },
-        {
-            "test_case": "Invalid Input - Too many characters",
-            "description": "Testing with too many characters in the date.",
-            "expected_result": "Fail",
-            "input": "2024-10-27-12"
-        },
-        {
-            "test_case": "Invalid Input -  Too few characters",
-            "description": "Testing with too few characters in the date.",
-            "expected_result": "Fail",
-            "input": "2024-10"
-        },
-        {
-            "test_case": "Invalid Input -  Special Characters",
-            "description": "Testing with special characters in the date.",
-            "expected_result": "Fail",
-            "input": "2024-10-27!"
-        }
-    ],
-    "Rx BC Email Event.Rx BC User Group": [
-        {
-            "test_case": "Valid Input - Alphanumeric",
-            "description": "Valid input with alphanumeric characters.",
-            "expected_result": "Pass",
-            "input": "GroupA123"
-        },
-        {
-            "test_case": "Valid Input - Special Characters Allowed",
-            "description": "Valid input with allowed special characters (e.g., underscore, hyphen).",
-            "expected_result": "Pass",
-            "input": "Group_A-123"
-        },
-        {
-            "test_case": "Valid Input - Long String",
-            "description": "Valid input with a string exceeding average length (e.g., 255 characters).",
-            "expected_result": "Pass",
-            "input": "ThisIsALongStringThatExceedsTheAverageLengthOfAGroupNameToTestBoundaryConditionsThisIsALongStringThatExceedsTheAverageLengthOfAGroupNameToTestBoundaryConditions"
-        },
-        {
-            "test_case": "Valid Input - Short String",
-            "description": "Valid input with a short string (e.g., single character).",
-            "expected_result": "Pass",
-            "input": "A"
-        },
-        {
-            "test_case": "Invalid Input - Null",
-            "description": "Input is NULL, violating NOT NULL constraint.",
-            "expected_result": "Fail",
-            "input": null
-        },
-        {
-            "test_case": "Invalid Input - Empty String",
-            "description": "Input is an empty string, violating NOT EMPTY constraint.",
-            "expected_result": "Fail",
-            "input": ""
-        },
-        {
-            "test_case": "Invalid Input - Only Spaces",
-            "description": "Input contains only spaces, effectively empty.",
-            "expected_result": "Fail",
-            "input": "   "
-        },
-        {
-            "test_case": "Invalid Input - Leading/Trailing Spaces",
-            "description": "Input with leading and trailing spaces.",
-            "expected_result": "Fail",
-            "input": "  Group Name  "
-        },
-        {
-            "test_case": "Invalid Input - Unallowed Special Characters",
-            "description": "Input contains unallowed special characters (e.g., <, >, &, etc.).",
-            "expected_result": "Fail",
-            "input": "Group<Name>"
-        },
-        {
-            "test_case": "Boundary Condition - Maximum Length",
-            "description": "Input string at the maximum allowed length (assuming a reasonable maximum).",
-            "expected_result": "Pass",
-            "input": "ThisIsAStringOfMaximumLengthThatNeedsToBeDefinedAccordingToTheSystemConstraints"
-        },
-        {
-            "test_case": "Boundary Condition - Exceeding Maximum Length",
-            "description": "Input string exceeding the maximum allowed length (assuming a reasonable maximum).",
-            "expected_result": "Fail",
-            "input": "ThisIsAStringOfMaximumLengthThatNeedsToBeDefinedAccordingToTheSystemConstraintsAndThisExceedsItByQuiteABit"
-        },
-        {
-            "test_case": "Edge Case - Unicode Characters",
-            "description": "Input containing Unicode characters.",
-            "expected_result": "Pass",
-            "input": "\u30b0\u30eb\u30fc\u30d7\u540d"
-        }
-    ]
+  "Rx Bc Demographics.Rx BC First Name": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "John"
+    },
+    {
+      "test_case": "TC002_Valid_LongName",
+      "description": "Valid input with a long name",
+      "expected_result": "Pass",
+      "input": "JohnathanJacobJingleheimerSchmidt"
+    },
+    {
+      "test_case": "TC003_Valid_SpecialChars",
+      "description": "Valid input with special characters (allowed)",
+      "expected_result": "Pass",
+      "input": "O'Malley"
+    },
+    {
+      "test_case": "TC004_Invalid_Null",
+      "description": "Test with null input",
+      "expected_result": "Fail",
+      "input": null
+    },
+    {
+      "test_case": "TC005_Invalid_Empty",
+      "description": "Test with empty string input",
+      "expected_result": "Fail",
+      "input": ""
+    },
+    {
+      "test_case": "TC006_Invalid_WhitespaceOnly",
+      "description": "Test with whitespace only input",
+      "expected_result": "Fail",
+      "input": "   "
+    },
+    {
+      "test_case": "TC007_Invalid_NumbersOnly",
+      "description": "Test with numeric input",
+      "expected_result": "Fail",
+      "input": "12345"
+    },
+    {
+      "test_case": "TC008_Invalid_SpecialChars_Disallowed",
+      "description": "Test with disallowed special characters",
+      "expected_result": "Fail",
+      "input": "John!@#$%"
+    },
+    {
+      "test_case": "TC009_Boundary_Maxlength",
+      "description": "Test with a very long name (near maximum length if applicable)",
+      "expected_result": "Pass",
+      "input": "ThisIsALongFirstNameWithLotsOfCharactersToTestTheMaximumLength"
+    },
+    {
+      "test_case": "TC010_Edge_LeadingTrailingSpaces",
+      "description": "Test with leading and trailing spaces",
+      "expected_result": "Fail",
+      "input": "  Jane Doe  "
+    },
+    {
+      "test_case": "TC011_Invalid_Type_Number",
+      "description": "Test with numeric input",
+      "expected_result": "Fail",
+      "input": 123
+    },
+    {
+      "test_case": "TC012_Invalid_Type_Boolean",
+      "description": "Test with boolean input",
+      "expected_result": "Fail",
+      "input": true
+    },
+    {
+      "test_case": "TC013_Invalid_Type_Array",
+      "description": "Test with array input",
+      "expected_result": "Fail",
+      "input": [
+        "John",
+        "Doe"
+      ]
+    },
+    {
+      "test_case": "TC014_Invalid_Type_Object",
+      "description": "Test with object input",
+      "expected_result": "Fail",
+      "input": {
+        "firstName": "John"
+      }
+    }
+  ],
+  "Rx Bc Demographics.Rx BC Last Name": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "Smith"
+    },
+    {
+      "test_case": "TC002_Valid_LongName",
+      "description": "Valid input with a long last name",
+      "expected_result": "Pass",
+      "input": "Supercalifragilisticexpialidocious"
+    },
+    {
+      "test_case": "TC003_Valid_LastNameWithApostrophe",
+      "description": "Valid input with an apostrophe",
+      "expected_result": "Pass",
+      "input": "O'Malley"
+    },
+    {
+      "test_case": "TC004_Valid_LastNameWithHyphen",
+      "description": "Valid input with a hyphen",
+      "expected_result": "Pass",
+      "input": "Smith-Jones"
+    },
+    {
+      "test_case": "TC005_Invalid_Null",
+      "description": "Test with null input",
+      "expected_result": "Fail",
+      "input": null
+    },
+    {
+      "test_case": "TC006_Invalid_Empty",
+      "description": "Test with empty string input",
+      "expected_result": "Fail",
+      "input": ""
+    },
+    {
+      "test_case": "TC007_Invalid_Whitespace",
+      "description": "Test with only whitespace input",
+      "expected_result": "Fail",
+      "input": "   "
+    },
+    {
+      "test_case": "TC008_Invalid_NumbersOnly",
+      "description": "Test with numeric input",
+      "expected_result": "Fail",
+      "input": "12345"
+    },
+    {
+      "test_case": "TC009_Invalid_SpecialCharacters",
+      "description": "Test with special characters",
+      "expected_result": "Fail",
+      "input": "!@#$%^&*()"
+    },
+    {
+      "test_case": "TC010_Boundary_MaxLen",
+      "description": "Test at the maximum length boundary (assuming a reasonable max length)",
+      "expected_result": "Pass",
+      "input": "ThisIsALongLastNameWithMaximumPossibleCharacters"
+    },
+    {
+      "test_case": "TC011_Edge_LeadingTrailingSpaces",
+      "description": "Test with leading and trailing spaces",
+      "expected_result": "Fail",
+      "input": "  Smith  "
+    },
+    {
+      "test_case": "TC012_Type_Number",
+      "description": "Test with number input",
+      "expected_result": "Fail",
+      "input": 123
+    },
+    {
+      "test_case": "TC013_Type_Boolean",
+      "description": "Test with boolean input",
+      "expected_result": "Fail",
+      "input": true
+    },
+    {
+      "test_case": "TC014_Type_Array",
+      "description": "Test with array input",
+      "expected_result": "Fail",
+      "input": [
+        "Smith"
+      ]
+    },
+    {
+      "test_case": "TC015_Type_Object",
+      "description": "Test with object input",
+      "expected_result": "Fail",
+      "input": {
+        "lastName": "Smith"
+      }
+    }
+  ],
+  "Rx BC Email Event.Rx BC Email": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid email input",
+      "expected_result": "Pass",
+      "input": "test@example.com"
+    },
+    {
+      "test_case": "TC002_Valid_LongEmail",
+      "description": "Valid email with long local part",
+      "expected_result": "Pass",
+      "input": "verylongtest1234567890@example.com"
+    },
+    {
+      "test_case": "TC003_Valid_WithPlusSign",
+      "description": "Valid email with plus sign in local part",
+      "expected_result": "Pass",
+      "input": "test+alias@example.com"
+    },
+    {
+      "test_case": "TC004_Invalid_Null",
+      "description": "Test with null input",
+      "expected_result": "Fail",
+      "input": null
+    },
+    {
+      "test_case": "TC005_Invalid_Empty",
+      "description": "Test with empty string input",
+      "expected_result": "Fail",
+      "input": ""
+    },
+    {
+      "test_case": "TC006_Invalid_MissingAtSymbol",
+      "description": "Invalid email - missing @ symbol",
+      "expected_result": "Fail",
+      "input": "test.example.com"
+    },
+    {
+      "test_case": "TC007_Invalid_MissingDomain",
+      "description": "Invalid email - missing domain",
+      "expected_result": "Fail",
+      "input": "test@"
+    },
+    {
+      "test_case": "TC008_Invalid_InvalidCharacters",
+      "description": "Invalid email - contains invalid characters",
+      "expected_result": "Fail",
+      "input": "test!@example.com"
+    },
+    {
+      "test_case": "TC009_Invalid_MultipleAtSymbols",
+      "description": "Invalid email - multiple @ symbols",
+      "expected_result": "Fail",
+      "input": "test@@example.com"
+    },
+    {
+      "test_case": "TC010_Invalid_Number",
+      "description": "Invalid email - input is a number",
+      "expected_result": "Fail",
+      "input": 123
+    },
+    {
+      "test_case": "TC011_Invalid_SpecialCharacters",
+      "description": "Invalid email - contains special characters",
+      "expected_result": "Fail",
+      "input": "test@example.c0m"
+    },
+    {
+      "test_case": "TC012_Boundary_Maxlength",
+      "description": "Valid email at maximum length (check system limits)",
+      "expected_result": "Pass",
+      "input": "averylongtestthatreachesmaximumlengthallowedforemail@example.com"
+    },
+    {
+      "test_case": "TC013_EdgeCase_LeadingWhitespace",
+      "description": "Email with leading whitespace",
+      "expected_result": "Fail",
+      "input": " test@example.com"
+    },
+    {
+      "test_case": "TC014_EdgeCase_TrailingWhitespace",
+      "description": "Email with trailing whitespace",
+      "expected_result": "Fail",
+      "input": "test@example.com "
+    }
+  ],
+  "Rx BC Email Event.Rx BC Event ID": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "12345"
+    },
+    {
+      "test_case": "TC002_Valid_Alphanumeric",
+      "description": "Valid alphanumeric input",
+      "expected_result": "Pass",
+      "input": "ABC123XYZ"
+    },
+    {
+      "test_case": "TC003_Valid_SpecialChars",
+      "description": "Valid input with special characters allowed (example)",
+      "expected_result": "Pass",
+      "input": "Event-ID_123"
+    },
+    {
+      "test_case": "TC004_Invalid_Null",
+      "description": "Test with null input",
+      "expected_result": "Fail",
+      "input": null
+    },
+    {
+      "test_case": "TC005_Invalid_Empty",
+      "description": "Test with empty string input",
+      "expected_result": "Fail",
+      "input": ""
+    },
+    {
+      "test_case": "TC006_Invalid_Whitespace",
+      "description": "Test with only whitespace input",
+      "expected_result": "Fail",
+      "input": "   "
+    },
+    {
+      "test_case": "TC007_Invalid_LongString",
+      "description": "Test with a string exceeding maximum length (assuming a limit exists, adjust as needed)",
+      "expected_result": "Fail",
+      "input": "ThisIsAVeryLongStringThatExceedsTheMaximumAllowableLengthForThisField"
+    },
+    {
+      "test_case": "TC008_Invalid_NumericOnly",
+      "description": "Test with numeric only input",
+      "expected_result": "Pass",
+      "input": "9876543210"
+    },
+    {
+      "test_case": "TC009_Invalid_Type_Number",
+      "description": "Test with numeric input (type validation)",
+      "expected_result": "Fail",
+      "input": 12345
+    },
+    {
+      "test_case": "TC010_Invalid_Type_Boolean",
+      "description": "Test with boolean input (type validation)",
+      "expected_result": "Fail",
+      "input": true
+    },
+    {
+      "test_case": "TC011_Invalid_Type_Array",
+      "description": "Test with array input (type validation)",
+      "expected_result": "Fail",
+      "input": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "test_case": "TC012_Invalid_Type_Object",
+      "description": "Test with object input (type validation)",
+      "expected_result": "Fail",
+      "input": {
+        "a": 1,
+        "b": 2
+      }
+    }
+  ],
+  "Rx BC Email Event.Rx BC Event Type": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test with a short string",
+      "expected_result": "Pass",
+      "input": "Renewal"
+    },
+    {
+      "test_case": "TC002_Valid_LongString",
+      "description": "Basic valid input test with a long string",
+      "expected_result": "Pass",
+      "input": "Initial Fill; Subsequent Fill"
+    },
+    {
+      "test_case": "TC003_Invalid_Null",
+      "description": "Test with null input",
+      "expected_result": "Fail",
+      "input": null
+    },
+    {
+      "test_case": "TC004_Invalid_Empty",
+      "description": "Test with empty string input",
+      "expected_result": "Fail",
+      "input": ""
+    },
+    {
+      "test_case": "TC005_Invalid_Whitespace",
+      "description": "Test with whitespace only input",
+      "expected_result": "Fail",
+      "input": "   "
+    },
+    {
+      "test_case": "TC006_Valid_SpecialCharacters",
+      "description": "Test with special characters",
+      "expected_result": "Pass",
+      "input": "New Rx; Transfer"
+    },
+    {
+      "test_case": "TC007_Invalid_Number",
+      "description": "Test with numeric input",
+      "expected_result": "Fail",
+      "input": 123
+    },
+    {
+      "test_case": "TC008_Invalid_Boolean",
+      "description": "Test with boolean input",
+      "expected_result": "Fail",
+      "input": true
+    },
+    {
+      "test_case": "TC009_Valid_Boundary_Max_Length",
+      "description": "Test with string at maximum allowed length (assuming a reasonable maximum)",
+      "expected_result": "Pass",
+      "input": "ThisIsALongStringThatTestsTheMaximumLengthAllowedForThisField"
+    },
+    {
+      "test_case": "TC010_Invalid_Type_Array",
+      "description": "Test with array input",
+      "expected_result": "Fail",
+      "input": [
+        "Renewal",
+        "Transfer"
+      ]
+    },
+    {
+      "test_case": "TC011_Invalid_Type_Object",
+      "description": "Test with object input",
+      "expected_result": "Fail",
+      "input": {
+        "type": "Renewal"
+      }
+    }
+  ],
+  "Rx BC Email Event.Rx BC New User Registration Link": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test with a short string",
+      "expected_result": "Pass",
+      "input": "https://example.com/register"
+    },
+    {
+      "test_case": "TC002_Valid_LongString",
+      "description": "Valid input with a long string",
+      "expected_result": "Pass",
+      "input": "https://this_is_a_very_long_url_to_test_the_maximum_length_allowed_for_this_field_and_it_should_be_long_enough_to_exceed_any_reasonable_limit.com/register"
+    },
+    {
+      "test_case": "TC003_Valid_URL",
+      "description": "Valid input with a well-formed URL",
+      "expected_result": "Pass",
+      "input": "https://www.example.com/register?ref=abc"
+    },
+    {
+      "test_case": "TC004_Invalid_ShortString",
+      "description": "Invalid input with a short string that is not a url",
+      "expected_result": "Fail",
+      "input": "short"
+    },
+    {
+      "test_case": "TC005_Invalid_SpecialCharacters",
+      "description": "Invalid input with special characters that are not URL-encoded",
+      "expected_result": "Fail",
+      "input": "https://example.com/register?param=<>\"'"
+    },
+    {
+      "test_case": "TC006_Invalid_MalformedURL",
+      "description": "Invalid input with a malformed URL",
+      "expected_result": "Fail",
+      "input": "htp://example.com"
+    },
+    {
+      "test_case": "TC007_Null_Input",
+      "description": "Test with null input",
+      "expected_result": "Pass",
+      "input": null
+    },
+    {
+      "test_case": "TC008_Empty_String",
+      "description": "Test with empty string input",
+      "expected_result": "Pass",
+      "input": ""
+    },
+    {
+      "test_case": "TC009_Boundary_Max_Length",
+      "description": "Test with a very long string at the maximum length boundary (assuming a reasonable limit)",
+      "expected_result": "Pass",
+      "input": "https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz.com/register"
+    },
+    {
+      "test_case": "TC010_EdgeCase_OnlyProtocol",
+      "description": "Test with only the protocol part of the URL",
+      "expected_result": "Fail",
+      "input": "https://"
+    },
+    {
+      "test_case": "TC011_EdgeCase_Number",
+      "description": "Test with a number as input",
+      "expected_result": "Fail",
+      "input": 12345
+    },
+    {
+      "test_case": "TC012_EdgeCase_Boolean",
+      "description": "Test with a boolean as input",
+      "expected_result": "Fail",
+      "input": true
+    }
+  ],
+  "Rx BC Email Event.Rx BC Timestamp": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Valid date in YYYY-MM-DD format",
+      "expected_result": "Pass",
+      "input": "2024-03-08"
+    },
+    {
+      "test_case": "TC002_Valid_WithTime",
+      "description": "Valid date and time in YYYY-MM-DD HH:mm:ss format",
+      "expected_result": "Pass",
+      "input": "2024-03-08 14:30:00"
+    },
+    {
+      "test_case": "TC003_Invalid_WrongFormat",
+      "description": "Invalid date format",
+      "expected_result": "Fail",
+      "input": "08/03/2024"
+    },
+    {
+      "test_case": "TC004_Invalid_FutureDate",
+      "description": "Future date",
+      "expected_result": "Fail",
+      "input": "2100-01-01"
+    },
+    {
+      "test_case": "TC005_Invalid_PastDate",
+      "description": "Date too far in the past (Example)",
+      "expected_result": "Fail",
+      "input": "1900-01-01"
+    },
+    {
+      "test_case": "TC006_Invalid_Null",
+      "description": "Null input",
+      "expected_result": "Fail",
+      "input": null
+    },
+    {
+      "test_case": "TC007_Invalid_Empty",
+      "description": "Empty string input",
+      "expected_result": "Fail",
+      "input": ""
+    },
+    {
+      "test_case": "TC008_Invalid_NonDate",
+      "description": "Non-date string input",
+      "expected_result": "Fail",
+      "input": "abcdefg"
+    },
+    {
+      "test_case": "TC009_Invalid_LeapYear",
+      "description": "Valid leap year",
+      "expected_result": "Pass",
+      "input": "2024-02-29"
+    },
+    {
+      "test_case": "TC010_Invalid_NonLeapYear",
+      "description": "Invalid date in a non-leap year",
+      "expected_result": "Fail",
+      "input": "2023-02-29"
+    },
+    {
+      "test_case": "TC011_Invalid_WrongDay",
+      "description": "Invalid day for the given month",
+      "expected_result": "Fail",
+      "input": "2024-04-31"
+    },
+    {
+      "test_case": "TC012_Boundary_MinDate",
+      "description": "Testing minimum acceptable date (adjust as needed)",
+      "expected_result": "Pass",
+      "input": "1970-01-01"
+    },
+    {
+      "test_case": "TC013_Boundary_MaxDate",
+      "description": "Testing maximum acceptable date (adjust as needed)",
+      "expected_result": "Pass",
+      "input": "2040-12-31"
+    },
+    {
+      "test_case": "TC014_Invalid_Type_Number",
+      "description": "Input is a number",
+      "expected_result": "Fail",
+      "input": 12345
+    },
+    {
+      "test_case": "TC015_Invalid_Type_Boolean",
+      "description": "Input is a boolean",
+      "expected_result": "Fail",
+      "input": true
+    },
+    {
+      "test_case": "TC016_Invalid_Type_Array",
+      "description": "Input is an array",
+      "expected_result": "Fail",
+      "input": [
+        "2024-03-08"
+      ]
+    },
+    {
+      "test_case": "TC017_Invalid_Type_Object",
+      "description": "Input is an object",
+      "expected_result": "Fail",
+      "input": {
+        "date": "2024-03-08"
+      }
+    }
+  ],
+  "Rx BC Email Event.Rx BC User Group": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "Group A"
+    },
+    {
+      "test_case": "TC002_Valid_Alphanumeric",
+      "description": "Valid alphanumeric input",
+      "expected_result": "Pass",
+      "input": "Group123"
+    },
+    {
+      "test_case": "TC003_Valid_SpecialChars",
+      "description": "Valid input with special characters allowed",
+      "expected_result": "Pass",
+      "input": "Group A&B"
+    },
+    {
+      "test_case": "TC004_Invalid_Null",
+      "description": "Test with null input",
+      "expected_result": "Fail",
+      "input": null
+    },
+    {
+      "test_case": "TC005_Invalid_Empty",
+      "description": "Test with empty string input",
+      "expected_result": "Fail",
+      "input": ""
+    },
+    {
+      "test_case": "TC006_Invalid_Whitespace",
+      "description": "Test with only whitespace input",
+      "expected_result": "Fail",
+      "input": "   "
+    },
+    {
+      "test_case": "TC007_Valid_LongString",
+      "description": "Valid input with a long string (boundary condition)",
+      "expected_result": "Pass",
+      "input": "This is a very long string to test the boundary condition for the Rx BC User Group field."
+    },
+    {
+      "test_case": "TC008_Invalid_Number",
+      "description": "Test with numeric input",
+      "expected_result": "Pass",
+      "input": "123"
+    },
+    {
+      "test_case": "TC009_Invalid_Type_Boolean",
+      "description": "Test with boolean input",
+      "expected_result": "Fail",
+      "input": true
+    },
+    {
+      "test_case": "TC010_Invalid_Type_Array",
+      "description": "Test with array input",
+      "expected_result": "Fail",
+      "input": [
+        "Group A",
+        "Group B"
+      ]
+    },
+    {
+      "test_case": "TC011_Invalid_Type_Object",
+      "description": "Test with object input",
+      "expected_result": "Fail",
+      "input": {
+        "name": "Group A"
+      }
+    }
+  ]
 }

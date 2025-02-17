@@ -1,6 +1,7 @@
 import os
 import yaml
-from src import parse_excel, generate_test_cases , enrich_rules
+# from . import generate_test_cases
+from src import parse_excel, enrich_rules , generate_test_cases
 
 def load_config(config_path="config/settings.yaml"):
     """Loads configuration from a YAML file."""
