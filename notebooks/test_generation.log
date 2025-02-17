@@ -338,3 +338,4 @@ Total test cases generated: 105
 Average test cases per field: 10.50
 Output file: data/anth1.json
 ==============================
+2025-02-17 16:36:13,685 - INFO - Successfully saved updated test cases to key_test.json
