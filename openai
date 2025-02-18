@@ -1,0 +1,127 @@
+# Import necessary libraries
+import openai
+import os
+from dotenv import load_dotenv
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+
+# Get Azure token
+default_credential = DefaultAzureCredential()
+access_token = default_credential.get_token("https://cognitiveservices.azure.com/.default")
+
+# Set API key from the access token
+api_key = access_token.token
+
+# Set environment variables for API key
+os.environ["api_key"] = api_key
+os.environ["AZURE_OPENAI_API_KEY"] = api_key
+
+
+# Define values for OpenAI endpoint, API version, deployment name, and project ID
+AZURE_OPENAI_ENDPOINT = "https://prod-1.services.unitedaistudio.uhg.com/aoai-shared-openai-prod-1"
+OPENAI_API_VERSION = "2024-06-01"
+DEPLOYMENT_NAME = "gpt-4o_2024-05-13"
+
+# Main function
+if __name__ == "__main__":
+    # Initialize OpenAI client
+    oai_client = openai.AzureOpenAI(
+        api_version=OPENAI_API_VERSION,
+        azure_endpoint=AZURE_OPENAI_ENDPOINT,
+        api_key=api_key,
+        azure_deployment=DEPLOYMENT_NAME,
+        default_headers={
+            "projectId": "0bef8880-4e98-413c-bc0b-41c280fd1b2a"
+        }
+    )
+
+    # Define the messages to be processed by the model
+    messages = [{"role": "user", "content": "Hi, what is prime number"}]
+
+    # Request model to process the messages
+    response = oai_client.chat.completions.create(
+        model="gpt-4o",
+        messages=messages,
+    )
+
+    # Print the response from the model
+    print(response.model_dump_json(indent=2))
+----
+{
+  "id": "chatcmpl-B1sS9t3mupyTFWAvcbPIizMUx8HCg",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. In other words, a prime number is a number that cannot be formed by multiplying two smaller natural numbers. Examples of prime numbers include 2, 3, 5, 7, 11, 13, and so on. \n\nTo illustrate, let's take the number 7: the only divisors of 7 are 1 and 7, so it is a prime number. However, the number 8 is not a prime number because it can be divided evenly by 1, 2, 4, and 8.\n\nNote that 2 is the only even prime number because every other even number can be divided by 2, making those numbers non-prime.",
+        "refusal": null,
+        "role": "assistant",
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      },
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ],
+  "created": 1739787345,
+  "model": "gpt-4o-2024-05-13",
+  "object": "chat.completion",
+  "service_tier": null,
+  "system_fingerprint": "fp_b045b4af17",
+  "usage": {
+    "completion_tokens": 164,
+    "prompt_tokens": 13,
+    "total_tokens": 177,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    }
+  },
+  "prompt_filter_results": [
+    {
+      "prompt_index": 0,
+      "content_filter_results": {
+        "hate": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "self_harm": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "sexual": {
+          "filtered": false,
+          "severity": "safe"
+        },
+        "violence": {
+          "filtered": false,
+          "severity": "safe"
+        }
+      }
+    }
+  ]
+}
