@@ -1,7 +1,6 @@
 import os
 import yaml
-# from . import generate_test_cases
-from src import parse_excel, enrich_rules , generate_test_cases
+from src import parse_excel, enrich_rules , generate_test_cases , add_keys
 
 def load_config(config_path="config/settings.yaml"):
     """Loads configuration from a YAML file."""
@@ -23,19 +22,21 @@ def main():
         exit()
 
     # # 1. Parse Excel and Extract Rules
-    # rules = parse_excel.parse_excel(config)
-    # if rules:
-    #     parse_excel.save_rules(rules, config.get("processed_rules_file"))
-    # else:
-    #     print("Error: Failed to parse Excel and extract rules.")
-    #     return
+    rules = parse_excel.parse_excel(config)
+    if rules:
+        parse_excel.save_rules(rules, config.get("processed_rules_file"))
+    else:
+        print("Error: Failed to parse Excel and extract rules.")
+        return
 
-    # 2. Enrich Rules with Constraints
+    # # 2. Enrich Rules with Constraints
     # enrich_rules.enrich_rules(config)
 
-    # 3. Generate Test Cases
-    generate_test_cases.generate_test_cases_from_file(config)
+    # # 3. Generate Test Cases
+    generate_test_cases.main()
 
+    # 4. Add Unique Keys
+    add_keys.add_unique_keys(config["generated_test_cases_file"], config["test_case_keys_file"])
 
 if __name__ == "__main__":
-    main() 
+    main()

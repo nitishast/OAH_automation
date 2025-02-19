@@ -86,21 +86,42 @@ def enrich_rules(config):
         print(f"Error decoding JSON from {rules_file}: {e}")
         return
 
+    # enriched_rules = {}
+    # for parent_field, details in rules.items():
+    #     enriched_rules[parent_field] = {"description": details['description'], "fields": {}}
+    #     for field_name, field_details in details["fields"].items():
+    #         data_type = field_details["data_type"]
+    #         description = field_details["description"]
+
+    #         extracted_constrains = enrich_constraints(field_name, data_type, description, llm_client, llm_model)
+    #         constrains_list = clean_and_split_constraints(extracted_constrains)
+
+    #         enriched_rules[parent_field]["fields"][field_name] = {
+    #             "data_type": data_type,
+    #             "required": field_details["required"],
+    #             "description": description,
+    #             "constraints": constrains_list # add constrains as a List
+    #         }
+
     enriched_rules = {}
     for parent_field, details in rules.items():
-        enriched_rules[parent_field] = {"description": details['description'], "fields": {}}
+        enriched_rules[parent_field] = {"fields": {}}  # Removed description
         for field_name, field_details in details["fields"].items():
             data_type = field_details["data_type"]
-            description = field_details["description"]
+            business_rules = field_details["business_rules"]  # Added to get business rules
 
-            extracted_constrains = enrich_constraints(field_name, data_type, description, llm_client, llm_model)
+            extracted_constrains = enrich_constraints(field_name, data_type, business_rules, llm_client, llm_model)
             constrains_list = clean_and_split_constraints(extracted_constrains)
 
             enriched_rules[parent_field]["fields"][field_name] = {
                 "data_type": data_type,
                 "required": field_details["required"],
-                "description": description,
-                "constraints": constrains_list # add constrains as a List
+                "from_source": field_details["from_source"],  # Added to include from_source
+                "primary_key": field_details["primary_key"],  # Added to include primary_key
+                "required_for_deployment": field_details["required_for_deployment"],  # Added to include required_for_deployment
+                "deployment_validation": field_details["deployment_validation"],  # Added to include deployment_validation
+                "business_rules": business_rules,  # Added to include business_rules
+                "constraints": constrains_list  # add constrains as a List
             }
 
     # Save the enreiched constrains

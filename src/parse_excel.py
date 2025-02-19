@@ -25,96 +25,108 @@ def preprocess_excel(file_path, sheet_name):
 
         # Detect column indices dynamically
         rx_bc_col = None
-        benefit_central_col = None
+        attribute_details_col = None
         data_type_col = None
-        description_col = None
+        business_rules_col = None
+        mandatory_field_col = None
+        from_source_col = None
+        primary_key_col = None
+        required_for_deployment_col = None
+        deployment_validation_col = None
 
         for i, col in enumerate(df.columns):
             col_lower = col.lower()
-            if "rx bc" in col_lower:
+            if "schema name" in col_lower:
                 rx_bc_col = i
-            elif "benefit central" in col_lower:
-                benefit_central_col = i
+            elif "attributes details" in col_lower:
+                attribute_details_col = i
             elif "data type" in col_lower:
                 data_type_col = i
-            elif "description" in col_lower:
-                description_col = i
+            elif "business rules" in col_lower:
+                business_rules_col = i
+            elif "mandatory field" in col_lower:
+                mandatory_field_col = i
+            elif "required from source to have data populated" in col_lower:
+                from_source_col = i
+            elif "primary key" in col_lower:
+                primary_key_col = i
+            elif "required for deployment validation" in col_lower:
+                required_for_deployment_col = i
+            elif "deployment validation" in col_lower:
+                deployment_validation_col = i
 
-        if rx_bc_col is None or benefit_central_col is None or data_type_col is None or description_col is None:
+        if rx_bc_col is None or attribute_details_col is None or data_type_col is None or business_rules_col is None or mandatory_field_col is None or from_source_col is None or primary_key_col is None or required_for_deployment_col is None or deployment_validation_col is None:
             raise ValueError("Could not automatically detect required columns.  "
-                             "Please ensure columns with 'Rx BC', 'Benefit Central', 'Data Type', "
-                             "and 'Description' exist in the Excel sheet.")
+                             "Please ensure all required columns exist in the Excel sheet.")
 
-        # Step 1: Fill down the "Rx BC" category
+        # Step 1: Fill down the "Schema Name" category
         df.iloc[:, rx_bc_col] = df.iloc[:, rx_bc_col].ffill()
 
-        # Step 2: Identify rows where 'Benefit Central' is 'object'
-        object_rows = df.iloc[:, benefit_central_col].astype(str).str.lower() == 'object'
-
-        # Store object descriptions
-        object_descriptions = {}
-        for index, row in df[object_rows].iterrows():
-            rx_bc_value = row.iloc[rx_bc_col]
-            object_descriptions[rx_bc_value] = row.iloc[description_col]
-
-        # Step 3: Remove rows where 'Benefit Central' is 'object'
-        df = df[~object_rows]
-
-        return df, object_descriptions
+        return df
 
     except Exception as e:
         print(f"Error preprocessing Excel file: {e}")
-        return None, None
+        return None
 
+def extract_rules_from_dataframe(df):
+    """Extract rules from the cleaned dataframe."""
+    extracted_rules = {}
+    rx_bc_col = None
+    attribute_details_col = None
+    data_type_col = None
+    business_rules_col = None
+    mandatory_field_col = None
+    from_source_col = None
+    primary_key_col = None
+    required_for_deployment_col = None
+    deployment_validation_col = None
 
-def extract_rules_from_dataframe(df, object_descriptions):
-    """Extract rules from the cleaned dataframe, creating a hierarchical JSON structure,
-       using dynamically detected column indices.
-    """
+    for i, col in enumerate(df.columns):
+        col_lower = col.lower()
+        if "schema name" in col_lower:
+            rx_bc_col = i
+        elif "attributes details" in col_lower:
+            attribute_details_col = i
+        elif "data type" in col_lower:
+            data_type_col = i
+        elif "business rules" in col_lower:
+            business_rules_col = i
+        elif "mandatory field" in col_lower:
+            mandatory_field_col = i
+        elif "required from source to have data populated" in col_lower:
+            from_source_col = i
+        elif "primary key" in col_lower:
+            primary_key_col = i
+        elif "required for deployment validation" in col_lower:
+            required_for_deployment_col = i
+        elif "deployment validation" in col_lower:
+            deployment_validation_col = i
     try:
-        # Detect column indices dynamically
-        rx_bc_col = None
-        benefit_central_col = None
-        data_type_col = None
-        description_col = None
-
-        for i, col in enumerate(df.columns):
-            col_lower = col.lower()
-            if "rx bc" in col_lower:
-                rx_bc_col = i
-            elif "benefit central" in col_lower:
-                benefit_central_col = i
-            elif "data type" in col_lower:
-                data_type_col = i
-            elif "description" in col_lower:
-                description_col = i
-
         extracted_rules = {}
         for _, row in df.iterrows():
             parent_field = str(row.iloc[rx_bc_col]).strip()
-            field_name = str(row.iloc[benefit_central_col]).strip()
+            field_name = str(row.iloc[attribute_details_col]).strip()
             data_type = str(row.iloc[data_type_col]).strip() if pd.notna(row.iloc[data_type_col]) else "String"
-            description = str(row.iloc[description_col]).strip() if pd.notna(row.iloc[description_col]) else ""
+            business_rules = str(row.iloc[business_rules_col]).strip() if pd.notna(row.iloc[business_rules_col]) else ""
+            mandatory_field = str(row.iloc[mandatory_field_col]).strip().lower() == "yes"
+            from_source = str(row.iloc[from_source_col]).strip().lower() == "yes"
+            primary_key = str(row.iloc[primary_key_col]).strip().lower() == "yes"
+            required_for_deployment = str(row.iloc[required_for_deployment_col]).strip().lower() == "yes"
+            deployment_validation = str(row.iloc[deployment_validation_col]).strip().lower() == "yes"
 
             if parent_field not in extracted_rules:
-                extracted_rules[parent_field] = {
-                    "description": object_descriptions.get(parent_field, ""),
-                    "fields": {}
-                }
+                extracted_rules[parent_field] = {"fields": {}}
 
-            if field_name not in extracted_rules[parent_field]["fields"]:
-                extracted_rules[parent_field]["fields"][field_name] = {
-                    "data_type": data_type,
-                    "required": "mandatory" in description.lower(),
-                    "description": description,
-                    "constraints": []
-                }
-            else:
-                # Append description if field already exists (handles duplicate fields)
-                extracted_rules[parent_field]["fields"][field_name]["description"] += "\n" + description
-
+            extracted_rules[parent_field]["fields"][field_name] = {
+                "data_type": data_type,
+                "required": mandatory_field,
+                "from_source": from_source,
+                "primary_key": primary_key,
+                "required_for_deployment": required_for_deployment,
+                "deployment_validation": deployment_validation,
+                "business_rules": business_rules
+            }
         return extracted_rules
-
     except Exception as e:
         print(f"Error extracting rules: {e}")
         return {}
@@ -128,10 +140,10 @@ def parse_excel(config):
         print("Error: excel_file or excel_sheet_name not found in config.")
         return None
 
-    df, object_descriptions = preprocess_excel(excel_file, excel_sheet_name)
+    df = preprocess_excel(excel_file, excel_sheet_name)
 
     if df is not None:
-        rules = extract_rules_from_dataframe(df, object_descriptions)
+        rules = extract_rules_from_dataframe(df)
         return rules
     else:
         return None

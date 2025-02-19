@@ -339,3 +339,106 @@ Average test cases per field: 10.50
 Output file: data/anth1.json
 ==============================
 2025-02-17 16:36:13,685 - INFO - Successfully saved updated test cases to key_test.json
+2025-02-19 13:01:44,154 - INFO - Processing field 1/10: Rx BC Demographics.Rx BC Email
+2025-02-19 13:01:57,142 - INFO - Successfully generated 14 test cases
+2025-02-19 13:01:57,143 - INFO - Processing field 2/10: Rx BC Demographics.Rx BC First Name
+2025-02-19 13:02:02,341 - INFO - Successfully generated 13 test cases
+2025-02-19 13:02:02,342 - INFO - Processing field 3/10: Rx BC Demographics.Rx BC Last Name
+2025-02-19 13:02:07,833 - INFO - Successfully generated 13 test cases
+2025-02-19 13:02:07,834 - INFO - Processing field 4/10: Rx BC Email Event.Rx BC Email
+2025-02-19 13:02:14,610 - INFO - Successfully generated 15 test cases
+2025-02-19 13:02:14,611 - INFO - Processing field 5/10: Rx BC Email Event.Rx BC Email Template Info
+2025-02-19 13:02:19,437 - INFO - Successfully generated 10 test cases
+2025-02-19 13:02:19,438 - INFO - Processing field 6/10: Rx BC Email Event.Rx BC Event ID
+2025-02-19 13:02:25,811 - INFO - Successfully generated 14 test cases
+2025-02-19 13:02:25,812 - INFO - Processing field 7/10: Rx BC Email Event.Rx BC Event Type
+2025-02-19 13:02:30,619 - INFO - Successfully generated 11 test cases
+2025-02-19 13:02:30,620 - INFO - Processing field 8/10: Rx BC Email Event.Rx BC New User Registration Link
+2025-02-19 13:02:36,471 - INFO - Successfully generated 13 test cases
+2025-02-19 13:02:36,472 - INFO - Processing field 9/10: Rx BC Email Event.Rx BC Timestamp
+2025-02-19 13:02:43,306 - WARNING - Test case 4 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-19 13:02:43,308 - WARNING - Test case 5 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-19 13:02:43,310 - WARNING - Test case 6 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-19 13:02:43,311 - WARNING - Test case 8 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-19 13:02:43,312 - WARNING - Test case 10 validation failed: Invalid date format. Expected formats: ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M:%S', '%m/%d/%Y %H:%M:%S']
+2025-02-19 13:02:43,313 - WARNING - Test case 13 validation failed: Date input must be a string
+2025-02-19 13:02:43,315 - WARNING - Test case 14 validation failed: Date input must be a string
+2025-02-19 13:02:43,317 - INFO - Successfully generated 7 test cases
+2025-02-19 13:02:43,318 - INFO - Processing field 10/10: Rx BC Email Event.Rx BC User Group
+2025-02-19 13:02:47,419 - ERROR - JSON parsing error: Expecting ',' delimiter: line 42 column 17 (char 1170) - Raw response: ```json
+[
+  {
+    "test_case": "TC001_Valid_Basic",
+    "description": "Basic valid input test",
+    "expected_result": "Pass",
+    "input": "Group A"
+  },
+  {
+    "test_case": "TC002_Valid_LongString",
+    "description": "Valid input with a long string",
+    "expected_result": "Pass",
+    "input": "This is a long string to test the length limit of the Rx BC User Group field."
+  },
+  {
+    "test_case": "TC003_Valid_SpecialChars",
+    "description": "Valid input with special characters",
+    "expected_result": "Pass",
+    "input": "Group A&B-123"
+  },
+  {
+    "test_case": "TC004_Invalid_Numeric",
+    "description": "Invalid input: Numeric value",
+    "expected_result": "Pass",
+    "input": 123
+  },
+  {
+    "test_case": "TC005_Invalid_Empty",
+    "description": "Invalid input: Empty String",
+    "expected_result": "Pass",
+    "input": ""
+  },
+  {
+    "test_case": "TC006_Null_Input",
+    "description": "Null input test",
+    "expected_result": "Pass",
+    "input": null
+  },
+  {
+    "test_case": "TC007_Boundary_Max_Length",
+    "description": "Input at the maximum length boundary (assuming no explicit length limit)",
+    "expected_result": "Pass",
+    "input": "A".repeat(255) 
+  },
+  {
+    "test_case": "TC008_Edge_OnlySpaces",
+    "description": "Input with only spaces",
+    "expected_result": "Pass",
+    "input": "   "
+  },
+  {
+    "test_case": "TC009_Edge_LeadingTrailingSpaces",
+    "description": "Input with leading and trailing spaces",
+    "expected_result": "Pass",
+    "input": "  Group B  "
+  },
+  {
+    "test_case": "TC010_Type_Validation_Boolean",
+    "description": "Type validation: Boolean value",
+    "expected_result": "Pass",
+    "input": true
+  }
+]
+```
+
+2025-02-19 13:02:47,420 - WARNING - Attempt 1: Failed to generate valid test cases
+2025-02-19 13:02:52,842 - INFO - Successfully generated 12 test cases
+2025-02-19 13:02:52,848 - INFO - Created backup: data/anth1.json.20250219_130252.bak
+2025-02-19 13:02:52,853 - INFO - Successfully saved test cases to data/anth1.json
+2025-02-19 13:02:52,854 - INFO - 
+Test Case Generation Summary
+==============================
+Total fields processed: 10
+Total test cases generated: 122
+Average test cases per field: 12.20
+Output file: data/anth1.json
+==============================

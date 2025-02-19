@@ -1,0 +1,497 @@
+{
+  "Rx BC Demographics.Rx BC Email": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid email input",
+      "expected_result": "Pass",
+      "input": "test@example.com",
+      "key": "52ec2f81-c807-4493-8fde-346079d6798d"
+    },
+    {
+      "test_case": "TC002_Valid_LongEmail",
+      "description": "Valid email with long local part",
+      "expected_result": "Pass",
+      "input": "long.email.address.with.many.parts+alias@example.com",
+      "key": "d5412717-4eac-43e7-b043-2cce129f1db3"
+    },
+    {
+      "test_case": "TC003_Valid_WithPlusSign",
+      "description": "Valid email with plus sign in local part",
+      "expected_result": "Pass",
+      "input": "user+alias@example.com",
+      "key": "e7a9596d-5431-4a20-a082-f2675c9f7e81"
+    },
+    {
+      "test_case": "TC004_Invalid_MissingAtSymbol",
+      "description": "Invalid email - missing @ symbol",
+      "expected_result": "Fail",
+      "input": "test example.com",
+      "key": "cbe5beea-e793-4146-a512-356b76ecbcfc"
+    },
+    {
+      "test_case": "TC005_Invalid_MissingDomain",
+      "description": "Invalid email - missing domain",
+      "expected_result": "Fail",
+      "input": "test@",
+      "key": "23ec6013-8825-49a2-834d-aa57c0c12f10"
+    },
+    {
+      "test_case": "TC006_Invalid_InvalidCharacters",
+      "description": "Invalid email - invalid characters",
+      "expected_result": "Fail",
+      "input": "test@example.com!",
+      "key": "2f175d4d-23ab-4d6e-b00a-20d01ab79d98"
+    },
+    {
+      "test_case": "TC007_Null_Input",
+      "description": "Null input - should fail due to NOT NULL constraint",
+      "expected_result": "Fail",
+      "input": null,
+      "key": "caf957a8-f2b1-4e1e-8431-dce1f286f247"
+    },
+    {
+      "test_case": "TC008_Empty_Input",
+      "description": "Empty string input - should fail due to NOT NULL constraint",
+      "expected_result": "Fail",
+      "input": "",
+      "key": "1fdb2ba3-8716-470e-8479-21f151efaefd"
+    },
+    {
+      "test_case": "TC009_Duplicate_Email",
+      "description": "Duplicate email - should fail due to uniqueness constraint",
+      "expected_result": "Fail",
+      "input": "test@example.com",
+      "key": "ea53b522-8d55-4138-9d0e-90402af7216e"
+    },
+    {
+      "test_case": "TC010_Long_Email",
+      "description": "Email exceeding reasonable length",
+      "expected_result": "Fail",
+      "input": "averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongaddress@example.com",
+      "key": "01fb67a3-ae29-4bd4-aa92-bd74f8a45657"
+    },
+    {
+      "test_case": "TC011_Invalid_Type",
+      "description": "Input of incorrect type (number)",
+      "expected_result": "Fail",
+      "input": 123,
+      "key": "e7d30cd0-232e-4333-aefe-9c24a45ebaef"
+    },
+    {
+      "test_case": "TC012_Valid_SpecialChars",
+      "description": "Valid email with allowed special characters",
+      "expected_result": "Pass",
+      "input": "test.user_123@subdomain.example.co.uk",
+      "key": "610d3c4f-7805-44cf-8968-2ddcd6ec0747"
+    }
+  ],
+  "Rx BC Demographics.Rx BC First Name": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "John",
+      "key": "06e5b907-c542-46d0-85df-021eab9745a8"
+    },
+    {
+      "test_case": "TC002_Valid_LongName",
+      "description": "Valid input with a long name",
+      "expected_result": "Pass",
+      "input": "JohnathanChristopherSmith",
+      "key": "2ae55446-842c-457b-9613-f2e6196797b5"
+    },
+    {
+      "test_case": "TC003_Valid_SpecialCharacters",
+      "description": "Valid input with special characters (allowed)",
+      "expected_result": "Pass",
+      "input": "O'Malley",
+      "key": "7063f751-387f-4842-886d-22d68bef5c1b"
+    },
+    {
+      "test_case": "TC004_Invalid_Empty",
+      "description": "Empty string input",
+      "expected_result": "Fail",
+      "input": "",
+      "key": "699ee8b2-b6da-42d2-8a60-0cf06e9dc7b7"
+    },
+    {
+      "test_case": "TC005_Invalid_Null",
+      "description": "Null input",
+      "expected_result": "Fail",
+      "input": null,
+      "key": "f2a3718c-aa40-4cfa-a7f6-bb3dd01af4ae"
+    },
+    {
+      "test_case": "TC006_Invalid_NumbersOnly",
+      "description": "Input containing only numbers",
+      "expected_result": "Fail",
+      "input": "12345",
+      "key": "c28dbe88-3eef-4209-b901-c3c3da1080fd"
+    },
+    {
+      "test_case": "TC007_Invalid_SpecialCharacters_Disallowed",
+      "description": "Input with disallowed special characters",
+      "expected_result": "Fail",
+      "input": "John!@#$%",
+      "key": "d5bf6a49-efe2-411d-9084-7b2b6b63bcca"
+    },
+    {
+      "test_case": "TC008_Boundary_Maxlength",
+      "description": "Input at the maximum length (assuming a reasonable maximum)",
+      "expected_result": "Pass",
+      "input": "JohnathanChristopherSmithJones",
+      "key": "5fc4c99d-ac7c-4282-85ab-d8743c746e15"
+    },
+    {
+      "test_case": "TC009_Edge_LeadingWhitespace",
+      "description": "Input with leading whitespace",
+      "expected_result": "Pass",
+      "input": " John",
+      "key": "0d4136a3-a714-4ae9-ac3c-56d54bf0a0f9"
+    },
+    {
+      "test_case": "TC010_Edge_TrailingWhitespace",
+      "description": "Input with trailing whitespace",
+      "expected_result": "Pass",
+      "input": "John ",
+      "key": "9b0c7a38-c06e-4a52-86f6-36e9d0844686"
+    },
+    {
+      "test_case": "TC011_Type_Number",
+      "description": "Input of numeric type",
+      "expected_result": "Fail",
+      "input": 123,
+      "key": "87d74646-4ee2-4392-ab25-c773e8f2ab67"
+    },
+    {
+      "test_case": "TC012_Type_Boolean",
+      "description": "Input of boolean type",
+      "expected_result": "Fail",
+      "input": true,
+      "key": "418fa888-43c6-4add-855c-476f147e6de8"
+    }
+  ],
+  "Rx BC Demographics.Rx BC Last Name": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "Smith",
+      "key": "ef40a428-0026-4b2a-b7f5-bf33053a1e33"
+    },
+    {
+      "test_case": "TC002_Valid_LongName",
+      "description": "Valid input with a long last name",
+      "expected_result": "Pass",
+      "input": "Supercalifragilisticexpialidocious",
+      "key": "421df09b-eb02-42aa-b3ed-de85b3f3c913"
+    },
+    {
+      "test_case": "TC003_Valid_NameWithApostrophe",
+      "description": "Valid input with an apostrophe",
+      "expected_result": "Pass",
+      "input": "O'Malley",
+      "key": "546f296e-eaf1-4d41-8ba7-09a72fd16e34"
+    },
+    {
+      "test_case": "TC004_Valid_NameWithHyphen",
+      "description": "Valid input with a hyphen",
+      "expected_result": "Pass",
+      "input": "Smith-Jones",
+      "key": "773cfc45-623f-4202-a5f4-7458a090a9b2"
+    },
+    {
+      "test_case": "TC005_Invalid_Null",
+      "description": "Null input",
+      "expected_result": "Fail",
+      "input": null,
+      "key": "f2bc5d63-fc53-4a41-974a-8c6179c03d6c"
+    },
+    {
+      "test_case": "TC006_Invalid_Empty",
+      "description": "Empty string input",
+      "expected_result": "Fail",
+      "input": "",
+      "key": "41afaf5d-ed10-4cd9-93c9-2669021dcf39"
+    },
+    {
+      "test_case": "TC007_Invalid_WhitespaceOnly",
+      "description": "Whitespace only input",
+      "expected_result": "Fail",
+      "input": "   ",
+      "key": "905cbbbb-01d6-42bd-b60c-217c8b3ca0df"
+    },
+    {
+      "test_case": "TC008_Invalid_NumbersOnly",
+      "description": "Numbers only input",
+      "expected_result": "Fail",
+      "input": "12345",
+      "key": "e5d0f9f8-3db2-4356-b2a0-3243695f9012"
+    },
+    {
+      "test_case": "TC009_Invalid_SpecialCharacters",
+      "description": "Input with special characters",
+      "expected_result": "Fail",
+      "input": "!@#$%^&*()",
+      "key": "b349a59a-3257-4705-a914-30a4bf4fb365"
+    },
+    {
+      "test_case": "TC010_Invalid_MixedCaseWithNumbersAndSymbols",
+      "description": "Input with mixed case, numbers, and symbols",
+      "expected_result": "Fail",
+      "input": "Sm1th&Co.",
+      "key": "ead4c214-0649-43bd-a463-d2fd597fc6e5"
+    },
+    {
+      "test_case": "TC011_Boundary_MaximumLength",
+      "description": "Input at the maximum length (assuming a reasonable limit)",
+      "expected_result": "Pass",
+      "input": "ThisIsALongLastNameWithLotsOfCharactersToTestTheMaximumLengthLimit",
+      "key": "3f466a40-f3e1-405b-9945-d2e1c1b0fca5"
+    },
+    {
+      "test_case": "TC012_Invalid_Type_Number",
+      "description": "Input of type number",
+      "expected_result": "Fail",
+      "input": 123,
+      "key": "dab85ef9-3dcf-4edc-9226-c335a3542322"
+    },
+    {
+      "test_case": "TC013_Invalid_Type_Boolean",
+      "description": "Input of type boolean",
+      "expected_result": "Fail",
+      "input": true,
+      "key": "b67056a0-1893-4042-aa98-797c48caf741"
+    },
+    {
+      "test_case": "TC014_EdgeCase_UnusualCharacters",
+      "description": "Input with unusual characters (e.g., emojis)",
+      "expected_result": "Pass",
+      "input": "\ud83d\ude0aSmith",
+      "key": "4ca9413b-7e18-4460-b441-076d1d9ad021"
+    }
+  ],
+  "Rx BC Email Event.Rx BC Email": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "test@example.com",
+      "key": "d4d8c4aa-79b9-4eb2-8f40-ada34fe58969"
+    },
+    {
+      "test_case": "TC002_Valid_LongEmail",
+      "description": "Valid email with long local part",
+      "expected_result": "Pass",
+      "input": "verylongusername1234567890@example.com",
+      "key": "3ba69545-12aa-4699-b265-e81e853df8dd"
+    },
+    {
+      "test_case": "TC003_Valid_ComplexEmail",
+      "description": "Valid email with complex domain",
+      "expected_result": "Pass",
+      "input": "user+alias@subdomain.example.co.uk",
+      "key": "a42b765c-8789-4c60-96bc-4834bd554960"
+    },
+    {
+      "test_case": "TC004_Invalid_NoAtSymbol",
+      "description": "Invalid email - missing @ symbol",
+      "expected_result": "Fail",
+      "input": "test example.com",
+      "key": "3647efdd-955d-49b2-b1f1-5ed5f5c91482"
+    },
+    {
+      "test_case": "TC005_Invalid_NoDomain",
+      "description": "Invalid email - missing domain",
+      "expected_result": "Fail",
+      "input": "test@",
+      "key": "efb2c3b6-f215-49c8-8b7b-8f36cdecf6f2"
+    },
+    {
+      "test_case": "TC006_Invalid_SpecialChars",
+      "description": "Invalid email - contains invalid special characters",
+      "expected_result": "Fail",
+      "input": "test!@#$%^&*()_+=-`~[]\\{}|;':\",./<>?@example.com",
+      "key": "fb64354a-e47c-45e2-84ba-80816a3b921b"
+    },
+    {
+      "test_case": "TC007_Invalid_MultipleAtSymbols",
+      "description": "Invalid email - multiple @ symbols",
+      "expected_result": "Fail",
+      "input": "test@example@com",
+      "key": "e3f25b6b-2591-40cc-a2a3-f753bb47cbec"
+    },
+    {
+      "test_case": "TC008_Null_Input",
+      "description": "Null input test",
+      "expected_result": "Fail",
+      "input": null,
+      "key": "6d70952b-2dae-411d-b9c6-f2fbbba157e0"
+    },
+    {
+      "test_case": "TC009_Empty_Input",
+      "description": "Empty input test",
+      "expected_result": "Fail",
+      "input": "",
+      "key": "43a9e593-88a9-4048-ac87-5c943153c45a"
+    },
+    {
+      "test_case": "TC010_Invalid_Type_Number",
+      "description": "Invalid input type - number",
+      "expected_result": "Fail",
+      "input": 123,
+      "key": "17bd33b7-5f2b-44a8-80b4-ae34d6416675"
+    },
+    {
+      "test_case": "TC011_Invalid_Type_Boolean",
+      "description": "Invalid input type - boolean",
+      "expected_result": "Fail",
+      "input": true,
+      "key": "02469cb7-c532-4cc1-94b7-2c785c4216da"
+    },
+    {
+      "test_case": "TC012_Boundary_Max_Length",
+      "description": "Valid email at maximum length (approximation)",
+      "expected_result": "Pass",
+      "input": "averylongusernamethatisclosetothemaximumlengthallowedforemail@example.com",
+      "key": "b37f323f-9513-4b67-a954-deb3e8b1f2dc"
+    },
+    {
+      "test_case": "TC013_Edge_Case_Whitespace",
+      "description": "Email with leading/trailing whitespace",
+      "expected_result": "Fail",
+      "input": " test@example.com ",
+      "key": "cc24b377-125c-4d06-a1ca-1b234bc0d9cc"
+    }
+  ],
+  "Rx BC Email Event.Rx BC Email Template Info": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test with a short string",
+      "expected_result": "Pass",
+      "input": "Test Email Template",
+      "key": "075a7699-f45c-4828-a633-793f7a937cc3"
+    },
+    {
+      "test_case": "TC002_Valid_LongString",
+      "description": "Valid input with a long string (check length limit if any)",
+      "expected_result": "Pass",
+      "input": "This is a long email template string to test the length boundary. It should be long enough to test any potential length restrictions.",
+      "key": "c3019e95-ea79-4f7f-bdaf-ed299a927771"
+    },
+    {
+      "test_case": "TC003_Valid_SpecialChars",
+      "description": "Valid input with special characters",
+      "expected_result": "Pass",
+      "input": "Test Template!@#$%^&*()_+=-`~[]\\{}|;':\",./<>?",
+      "key": "cc5b1b0b-2f63-4585-ae25-3e68503147df"
+    },
+    {
+      "test_case": "TC004_Invalid_TooLong",
+      "description": "Invalid input - String exceeds the maximum length (if any)",
+      "expected_result": "Pass",
+      "input": "This string is excessively long to intentionally exceed the maximum length limit, if one is defined for the field.  This should trigger an error if a length constraint is in place.  This is very long.",
+      "key": "3cd52604-108a-486e-b949-79d9f0968560"
+    },
+    {
+      "test_case": "TC005_Null_Input",
+      "description": "Null input test",
+      "expected_result": "Pass",
+      "input": null,
+      "key": "43e37d9b-ff22-49e7-8a76-fef9cfdfd6c7"
+    },
+    {
+      "test_case": "TC006_Empty_String",
+      "description": "Empty string input test",
+      "expected_result": "Pass",
+      "input": "",
+      "key": "d0aa2a95-ba8d-4676-8ab7-e295de7816ec"
+    },
+    {
+      "test_case": "TC011_Edge_OnlyWhitespace",
+      "description": "Edge case: input string contains only whitespace characters",
+      "expected_result": "Pass",
+      "input": "   ",
+      "key": "5d48ca7c-0f65-44d8-bd0d-d9716a15846c"
+    },
+    {
+      "test_case": "TC012_Edge_ControlChars",
+      "description": "Edge case: input string contains control characters",
+      "expected_result": "Pass",
+      "input": "\\t\\n\\r",
+      "key": "695c73f8-03ed-471b-b115-5da75dd41c36"
+    }
+  ],
+  "Rx BC Email Event.Rx BC Event ID": [
+    {
+      "test_case": "TC001_Valid_Basic",
+      "description": "Basic valid input test",
+      "expected_result": "Pass",
+      "input": "12345",
+      "key": "39ba4455-825f-4a63-bdfb-cc98d875479f"
+    },
+    {
+      "test_case": "TC002_Valid_LongString",
+      "description": "Valid input with long string (assuming no length limit specified)",
+      "expected_result": "Pass",
+      "input": "ThisIsALongStringForRxBCEventIDTesting1234567890",
+      "key": "92af587f-771b-469f-936c-1a24ae246ad9"
+    },
+    {
+      "test_case": "TC003_Valid_SpecialChars",
+      "description": "Valid input with special characters (assuming no character restrictions)",
+      "expected_result": "Pass",
+      "input": "RX-BC-Event-ID-123!",
+      "key": "d6b509fb-fff3-412a-92f7-d62124aec596"
+    },
+    {
+      "test_case": "TC004_Invalid_Null",
+      "description": "Null input test",
+      "expected_result": "Fail",
+      "input": null,
+      "key": "2b02005f-b1d6-4a16-8102-7df8e870dab6"
+    },
+    {
+      "test_case": "TC005_Invalid_Empty",
+      "description": "Empty string input test",
+      "expected_result": "Fail",
+      "input": "",
+      "key": "fc0d6dac-e92f-49c5-98ae-b93a5fc91400"
+    },
+    {
+      "test_case": "TC006_Invalid_Number",
+      "description": "Numeric input test",
+      "expected_result": "Pass",
+      "input": "1234567890",
+      "key": "881a0599-0d17-499a-a1cf-34edee84bcb8"
+    },
+    {
+      "test_case": "TC007_Invalid_OnlySpaces",
+      "description": "Input with only spaces",
+      "expected_result": "Fail",
+      "input": "   ",
+      "key": "f761a8b6-fb78-40e7-b216-643b18e56f65"
+    },
+    {
+      "test_case": "TC008_Invalid_TypeMismatch",
+      "description": "Input of wrong type (number)",
+      "expected_result": "Fail",
+      "input": 123,
+      "key": "dbfb1351-a7c5-458d-bf20-85956ce3bfdd"
+    },
+    {
+      "test_case": "TC009_Boundary_MaxLen",
+      "description": "Input at the assumed maximum length (replace with actual max length if known)",
+      "expected_result": "Pass",
+      "input": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      "key": "85fccc85-2291-43c7-8a33-ff7b55eb65ad"
+    },
+    {
+      "test_case": "TC010_EdgeCase_LeadingTrailingSpaces",
+      "description": "Input with leading and trailing spaces",
+      "expected_result": "Fail",
+      "input": "   leading and trailing spaces    ",
+      "key": "01769c82-e588-4058-9209-48fb75efb4c9"
+    }
+  ]
+}
