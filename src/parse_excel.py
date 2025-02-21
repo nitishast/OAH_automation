@@ -119,7 +119,7 @@ def extract_rules_from_dataframe(df):
 
             extracted_rules[parent_field]["fields"][field_name] = {
                 "data_type": data_type,
-                "required": mandatory_field,
+                "mandatory_field": mandatory_field,
                 "from_source": from_source,
                 "primary_key": primary_key,
                 "required_for_deployment": required_for_deployment,

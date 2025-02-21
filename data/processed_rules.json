@@ -3,7 +3,7 @@
         "fields": {
             "Rx BC Email": {
                 "data_type": "String",
-                "required": true,
+                "mandatory_field": true,
                 "from_source": true,
                 "primary_key": true,
                 "required_for_deployment": true,
@@ -12,7 +12,7 @@
             },
             "Rx BC First Name": {
                 "data_type": "String",
-                "required": true,
+                "mandatory_field": true,
                 "from_source": true,
                 "primary_key": false,
                 "required_for_deployment": true,
@@ -21,7 +21,7 @@
             },
             "Rx BC Last Name": {
                 "data_type": "String",
-                "required": true,
+                "mandatory_field": true,
                 "from_source": true,
                 "primary_key": false,
                 "required_for_deployment": true,
@@ -34,7 +34,7 @@
         "fields": {
             "Rx BC Email": {
                 "data_type": "String",
-                "required": true,
+                "mandatory_field": true,
                 "from_source": true,
                 "primary_key": true,
                 "required_for_deployment": true,
@@ -43,7 +43,7 @@
             },
             "Rx BC Email Template Info": {
                 "data_type": "String",
-                "required": false,
+                "mandatory_field": false,
                 "from_source": false,
                 "primary_key": false,
                 "required_for_deployment": true,
@@ -52,7 +52,7 @@
             },
             "Rx BC Event ID": {
                 "data_type": "String",
-                "required": true,
+                "mandatory_field": true,
                 "from_source": true,
                 "primary_key": false,
                 "required_for_deployment": true,
@@ -61,7 +61,7 @@
             },
             "Rx BC Event Type": {
                 "data_type": "String",
-                "required": true,
+                "mandatory_field": true,
                 "from_source": true,
                 "primary_key": false,
                 "required_for_deployment": true,
@@ -70,7 +70,7 @@
             },
             "Rx BC New User Registration Link": {
                 "data_type": "String",
-                "required": true,
+                "mandatory_field": true,
                 "from_source": true,
                 "primary_key": false,
                 "required_for_deployment": true,
@@ -79,7 +79,7 @@
             },
             "Rx BC Timestamp": {
                 "data_type": "Date",
-                "required": false,
+                "mandatory_field": false,
                 "from_source": false,
                 "primary_key": false,
                 "required_for_deployment": true,
@@ -88,7 +88,7 @@
             },
             "Rx BC User Group": {
                 "data_type": "String",
-                "required": false,
+                "mandatory_field": false,
                 "from_source": false,
                 "primary_key": false,
                 "required_for_deployment": true,

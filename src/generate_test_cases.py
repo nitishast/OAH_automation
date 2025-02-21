@@ -86,7 +86,7 @@ class TestCaseGenerator:
                 return False, "String field with non-string input should fail"
         return True, ""
 
-    def _generate_prompt(self, field_name: str, data_type: str, constraints: List[str], description: str = "") -> str:
+    def _generate_prompt(self, field_name: str, data_type: str, mandatory_field: bool, primary_key: bool, business_rules: str) -> str:
         """Generate a more structured and specific prompt for test case generation."""
         field_specific_info = ""
         if data_type == "Date":
@@ -96,8 +96,9 @@ class TestCaseGenerator:
         return f"""
 Generate test cases for the field '{field_name}' with following specifications:
 - Data Type: {data_type}
-- Constraints: {constraints}
-- Description: {description}{field_specific_info}
+- Mandatory: {mandatory_field}
+- Primary Key: {primary_key}
+- Business Rules: {business_rules} 
 
 Requirements:
 1. Include ONLY the JSON array of test cases in your response
@@ -213,8 +214,9 @@ IMPORTANT: Return ONLY the JSON array. No additional text or explanation."""
                     prompt = self._generate_prompt(
                         field_name,
                         field_details["data_type"],
-                        field_details["constraints"],
-                        field_details.get("description", "")
+                        field_details["mandatory_field"],
+                        field_details["primary_key"],
+                        field_details.get("business_rules", "")
                     )
 
                     # Get LLM response with retries
@@ -286,7 +288,7 @@ def main():
     try:
         generator = TestCaseGenerator()
         generator.generate_test_cases(
-            generator.config["constrains_processed_rules_file"],
+            generator.config["processed_rules_file"],
             generator.config["generated_test_cases_file"]
         )
     except Exception as e:

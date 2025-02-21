@@ -29,7 +29,7 @@ def main():
         print("Error: Failed to parse Excel and extract rules.")
         return
 
-    # # 2. Enrich Rules with Constraints
+    # 2. Enrich Rules with Constraints
     # enrich_rules.enrich_rules(config)
 
     # # 3. Generate Test Cases
